@@ -1,0 +1,116 @@
+{
+  "question": "Do metabolically impaired patients benefit more from GLP-1RA treatment in AD/PD neuroprotection trials?",
+  "search_scope_note": "PubMed/PMC sources only, extending the existing 21-paper extraction with baseline-characteristics and subgroup-analysis fields not previously pulled (N, diabetes prevalence, BMI, HbA1c, metabolic-status-stratified outcomes).",
+  "trials": [
+    {
+      "trial": "Athauda et al. 2017 (Exenatide-PD)",
+      "drug": "Exenatide 2 mg once weekly SC",
+      "disease": "Parkinson's disease (moderate)",
+      "n": "62 (32 exenatide / 30 placebo)",
+      "diabetes_prevalence": "0% — diabetes was an explicit exclusion criterion (HbA1c >=48 mmol/mol at screening)",
+      "bmi": "Not reported in available tables (exclusion threshold BMI<18.5 noted, but baseline mean/SD not disclosed)",
+      "hba1c": "Not reported per arm (only the <48 mmol/mol exclusion threshold is documented)",
+      "outcome": "MDS-UPDRS III (off-med) improved 1.0 pts vs placebo worsened 2.1 pts (adj diff -3.5, p=0.0318). No subgroup/interaction analysis by metabolic status was performed in the primary trial report.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5831666/"
+    },
+    {
+      "trial": "Athauda et al. 2019 post-hoc analysis (same Exenatide-PD cohort)",
+      "drug": "Exenatide 2 mg once weekly SC",
+      "disease": "Parkinson's disease (moderate)",
+      "n": "62 (same cohort as above)",
+      "diabetes_prevalence": "0% (same exclusion as parent trial)",
+      "bmi": "Tested as a candidate predictor of response, but exact quantitative subgroup result not available from the accessible abstract",
+      "hba1c": "Not reported; insulin resistance was tested as a candidate predictor but exact result not available from the accessible abstract",
+      "outcome": "Dedicated post-hoc 'factors that predict response' analysis. BMI and insulin resistance WERE tested as candidate moderators of motor response, but were NOT among the factors that significantly predicted greater benefit. Significant predictors instead were: tremor-dominant phenotype and lower baseline MDS-UPDRS Part 2 score (greater response); older age of onset and disease duration >10 years (lesser response). This is the one direct test in this literature of whether metabolic status predicts greater GLP-1RA benefit, and it did not support that hypothesis (at least for PD motor outcomes).",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/30070753/",
+      "access_note": "Full text not accessible; extraction limited to abstract-level detail. Exact statistics for the BMI/insulin-resistance comparisons were not retrievable from the abstract alone."
+    },
+    {
+      "trial": "Aviles-Olmos et al. 2013 (Exenatide pilot)",
+      "drug": "Exenatide SC (open-label/single-blind pilot)",
+      "disease": "Parkinson's disease (moderate)",
+      "n": "~44-45 (exact per-arm split not specified in accessible abstract)",
+      "diabetes_prevalence": "Not reported either way in the accessible abstract",
+      "bmi": "Not reported in the accessible abstract",
+      "hba1c": "Not reported in the accessible abstract",
+      "outcome": "MDS-UPDRS improved 2.7 pts vs decline 2.2 pts in controls (p=0.037). No subgroup analysis by metabolic status reported.",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/23728174/"
+    },
+    {
+      "trial": "Meissner et al. 2024 / LixiPark",
+      "drug": "Lixisenatide 20 microg/day SC",
+      "disease": "Early Parkinson's disease",
+      "n": "~156 total (~78 per arm, per Helal 2025 meta-analysis study-characteristics table)",
+      "diabetes_prevalence": "Not explicitly stated in any accessible source; design pattern (consistent with other PD GLP-1RA trials) suggests diabetics were likely excluded, but this was not directly confirmed since the NEJM full text is paywalled",
+      "bmi": "~25.6 (SD 3.9) and ~25.8 (SD 4.2) kg/m2 per arm, per Helal et al. 2025 meta-analysis table",
+      "hba1c": "Not reported in any accessible source",
+      "outcome": "Primary endpoint MDS-UPDRS III stable (-0.04) vs placebo worsened (+3.04); adj diff 3.08 (p=0.007). No subgroup analysis by metabolic status found in accessible sources.",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/38598572/ ; table data via https://pmc.ncbi.nlm.nih.gov/articles/PMC12374370/",
+      "access_note": "Full NEJM text paywalled; baseline BMI sourced secondhand via a meta-analysis table rather than the primary publication."
+    },
+    {
+      "trial": "Gejl et al. 2016",
+      "drug": "Liraglutide, titrated to 1.8 mg/day SC",
+      "disease": "Alzheimer's disease",
+      "n": "38 (18 liraglutide / 20 placebo)",
+      "diabetes_prevalence": "0% — diabetes mellitus was an explicit exclusion criterion",
+      "bmi": "Placebo 25.1 (SEM 0.7) kg/m2; Liraglutide 25.1 (SEM 1.0) kg/m2 — matched at baseline",
+      "hba1c": "Placebo ~5.6%; Liraglutide ~5.5% (reported in source as fractional values 0.056/0.055); fasting glucose: placebo 5.8 (0.2) mmol/L, liraglutide 5.6 (0.2) mmol/L — both arms normoglycemic",
+      "outcome": "Cerebral glucose metabolism (CMRglc) decline prevented with liraglutide (no significant cognitive or amyloid difference). No subgroup analysis by metabolic status was performed; sample also too small and too metabolically homogeneous (normoglycemic, matched BMI) to test this question.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4877513/"
+    },
+    {
+      "trial": "Edison et al. 2025 / ELAD",
+      "drug": "Liraglutide, titrated to 1.8 mg/day SC",
+      "disease": "Mild-to-moderate Alzheimer's disease",
+      "n": "204 (102 liraglutide / 102 placebo)",
+      "diabetes_prevalence": "0% — participants on treatment for diabetes mellitus were excluded",
+      "bmi": "Not reported in accessible tables",
+      "hba1c": "Not reported; baseline insulin levels reported instead — placebo median 6.2 mIU/L vs liraglutide 6.9 mIU/L (p=0.34, not significant)",
+      "outcome": "Primary outcome (cerebral glucose metabolism) not significant (p=0.14); ADAS-Exec slower decline with liraglutide (p=0.01); less brain volume loss. No subgroup/interaction analysis by metabolic status (diabetes/BMI/HbA1c/insulin resistance) was conducted or reported.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12823385/"
+    },
+    {
+      "trial": "Cummings et al. 2026 / evoke + evoke+",
+      "drug": "Oral semaglutide, up to 14 mg/day",
+      "disease": "Early-stage symptomatic Alzheimer's disease (amyloid-confirmed)",
+      "n": "3,808 total (evoke: 1,855 [928/927]; evoke+: 1,953 [976/977])",
+      "diabetes_prevalence": "13.6% overall (516/3,808); 11.6% in evoke, 15.4% in evoke+ — the ONLY trial in this set that did not exclude type 2 diabetics outright, though prevalence still well below general-population T2D rates in this age group",
+      "bmi": "25.7 (SD 4.5) kg/m2, combined across both trials",
+      "hba1c": "Not reported in accessible sources",
+      "outcome": "Primary endpoint CDR-SB change at week 104: no significant difference vs placebo in either trial (negative/null result overall). No diabetes-stratified, BMI-stratified, or HbA1c-stratified subgroup analysis has been published in accessible sources, despite this trial having the only meaningful diabetic subgroup (n~516) of any GLP-1RA AD/PD RCT identified.",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/41865758/ ; baseline characteristics via https://pmc.ncbi.nlm.nih.gov/articles/PMC12789876/"
+    },
+    {
+      "trial": "AbuAlrob et al. 2025 (real-world propensity-matched cohort, NOT an RCT)",
+      "drug": "GLP-1RA class (liraglutide, semaglutide, dulaglutide, exenatide, albiglutide pooled)",
+      "disease": "Alzheimer's disease / incident dementia",
+      "n": "295,010 matched (147,505 GLP-1RA users / 147,505 non-users)",
+      "diabetes_prevalence": "~50.8% in GLP-1RA users vs ~47.0% in non-users after matching — by far the most metabolically-impaired-enriched population of any source reviewed (consistent with GLP-1RAs' approved diabetes/obesity indications driving real-world prescribing)",
+      "bmi": "Not reported as a mean; 'overweight/obesity' reported as a binary flag: 40.3% (users) vs 41.7% (non-users)",
+      "hba1c": "Not reported",
+      "outcome": "Dementia incidence 0.20% (users) vs 0.44% (non-users); HR 0.30 (95% CI 0.28-0.33, p<0.001). The authors EXPLICITLY state no subgroup analysis was performed by diabetes status, individual agent, or dose, because 'these details were not uniformly available' in the EHR data — despite this being the largest and most diabetes-enriched dataset in the entire literature set, and therefore the one best positioned (statistically) to answer the metabolic-impairment question.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12536097/"
+    }
+  ],
+  "answer_to_the_question": {
+    "short_answer": "Not established. No trial in this literature has confirmed that metabolically impaired (diabetic/obese/insulin-resistant) patients benefit more from GLP-1RA neuroprotective treatment in AD or PD.",
+    "why_the_question_is_hard_to_answer_from_existing_evidence": [
+      "Five of the seven RCTs identified (Athauda 2017, Aviles-Olmos 2013 [implicitly], Gejl 2016, Edison 2025/ELAD, and very likely Meissner 2024/LixiPark) explicitly EXCLUDED diabetic patients at enrollment — specifically to isolate a CNS/neuroprotective drug effect from confounding peripheral glycemic improvement. This means most of this evidence base structurally CANNOT test whether diabetics/metabolically-impaired patients benefit more, because that subgroup was screened out before randomization.",
+      "Only evoke/evoke+ (oral semaglutide, AD) enrolled a non-trivial diabetic subgroup (11.6-15.4%, n~516 total) — but its primary outcome was already null overall, and no diabetes-stratified subgroup analysis has been published in any source we could access.",
+      "The one analysis that directly tested metabolic status as a predictor of GLP-1RA response — Athauda et al. 2019 post-hoc analysis of the Exenatide-PD trial — examined BMI and insulin resistance as candidate predictors of motor benefit and found neither was among the significant predictors; phenotype (tremor-dominant) and disease-stage factors (lower baseline UPDRS-II, shorter disease duration) predicted response instead. This is the closest thing to direct evidence on the question, and it leans against (not for) the 'more metabolically impaired = bigger benefit' hypothesis, at least for PD motor outcomes — though it's a single post-hoc analysis in a 62-patient trial with 0% diabetics, so the metabolic range tested was narrow (BMI/IR variation within an already-non-diabetic population, not impaired-vs-healthy).",
+      "The largest dataset with substantial metabolic-impairment representation (AbuAlrob 2025 real-world cohort, ~51% diabetic, n=295,010) had the statistical power to test this directly but explicitly did not perform the stratified analysis, citing incomplete EHR coding of diabetes/agent/dose details."
+    ],
+    "bottom_line": "The honest state of the evidence is an evidence gap, not a documented null or positive subgroup effect: trial designs have systematically avoided enrolling the very population (diabetic/insulin-resistant patients) whose response would test the central-insulin-resistance-mediation hypothesis most directly, and the one real-world dataset large enough to test it didn't run the analysis. If you want this question answered, the most promising existing data source is a post-hoc reanalysis of evoke/evoke+ (which has ~516 diabetic participants) stratified by baseline diabetes/HbA1c — that data exists but is not yet published in stratified form, to our knowledge."
+  },
+  "corrections_log": [
+    {
+      "date": "2026-06-17",
+      "issue": "A WebSearch tool call's natural-language summary (not a direct quote) asserted that the evoke/evoke+ Lancet paper (Cummings et al. 2026) reported 'a post-hoc analysis... in age, sex, and type 2 diabetes subgroups' and that 'subgroup analyses supported the main results.' This was treated as a real finding in the initial pass of this extraction.",
+      "how_it_was_caught": "Attempted to verify the claim directly against the primary source (Lancet/ScienceDirect full text — both blocked, HTTP 403) and against independent secondary coverage: a substack critical appraisal and AlzForum's CTAD conference report. AlzForum directly quotes Novo Nordisk VP Peter Johannsen stating 'Subgroup analyses were not presented at CTAD' and 'When you look at the curves, they are exactly on top of each other... If he were to identify a subgroup that benefitted, it would be a very small one.' The substack appraisal independently states 'Novo Nordisk has not yet reported a subgroup analysis for these patients.' Both contradict the original WebSearch summary.",
+      "conclusion": "The original 'subgroup analyses supported the main results' claim is almost certainly an unsupported inference/hallucination introduced by the search-summarization layer, not a real reported result. No diabetes-, age-, or sex-stratified CDR-SB subgroup analysis for evoke/evoke+ has been publicly disclosed as of this writing, despite the trial enrolling ~518 (~14%) participants with type 2 diabetes.",
+      "correction_applied": "Removed the false 'subgroup analyses supported main results' claim from this file's analysis. The evoke/evoke+ entry and the answer_to_the_question section now correctly state that no diabetes-stratified subgroup result has been published, and that the only available signal is an informal, non-statistical conference remark suggesting no visible difference between treatment/placebo curves overall.",
+      "lesson": "Tool-generated prose summaries of search results (as opposed to directly quoted/fetched primary-source text) should be treated as a lead to verify, not as a citable fact — especially for specific claims like 'a subgroup analysis was performed and showed X.' Cross-check against at least one independent secondary source or the primary document itself before including such claims in extraction outputs."
+    }
+  ]
+}

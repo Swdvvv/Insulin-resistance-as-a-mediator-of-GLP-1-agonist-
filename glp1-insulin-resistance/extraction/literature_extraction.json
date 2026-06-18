@@ -1,0 +1,349 @@
+{
+  "research_question": "What evidence supports central insulin resistance as a mediator of GLP-1 receptor agonist neuroprotection in Alzheimer's and Parkinson's disease?",
+  "search_scope_note": "Search restricted to PubMed, PubMed Central (PMC), and clinical trial publications (ClinicalTrials.gov / registered trial reports), per user instruction. This is a systematic but not exhaustive search (run 2026-06-16); it covers all major completed RCTs identified for AD and PD, key mechanistic preclinical studies directly measuring insulin signaling markers, and recent systematic reviews/meta-analyses. Fields are populated only with what each source explicitly states; 'not reported' means the source did not state that item.",
+  "papers": [
+    {
+      "study_id": 1,
+      "citation": "Athauda D, Maclagan K, Skene SS, et al. Exenatide once weekly versus placebo in Parkinson's disease: a randomised, double-blind, placebo-controlled trial. Lancet. 2017;390(10103):1664-1675.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5831666/",
+      "study_type": "RCT (clinical)",
+      "disease_studied": "Parkinson's disease (moderate severity)",
+      "glp1_agonist_used": "Exenatide 2 mg once weekly, subcutaneous, for 48 weeks + 12-week washout",
+      "evidence_of_insulin_resistance": "not reported",
+      "insulin_signaling_markers_measured": "not reported",
+      "neurodegenerative_outcomes": "MDS-UPDRS part 3 (off-medication, 60 weeks): exenatide improved 1.0 pts vs placebo worsened 2.1 pts (adjusted difference -3.5, p=0.0318); Mattis Dementia Rating Scale: no significant difference; DaTscan: reduced rate of dopamine transporter decline in right/left putamen and right caudate with exenatide",
+      "mediation_tested": "Not performed",
+      "main_conclusions": "Exenatide had positive effects on practically defined off-medication motor scores that were sustained beyond the exposure period; whether this reflects disease modification or a symptomatic effect remained uncertain."
+    },
+    {
+      "study_id": 2,
+      "citation": "Athauda D, Gulyani S, Karnati HK, et al. Utility of Neuronal-Derived Exosomes to Examine Molecular Mechanisms That Affect Motor Function in Patients With Parkinson Disease: A Secondary Analysis of the Exenatide-PD Trial. JAMA Neurol. 2019;76(4):420-429.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6459135/",
+      "study_type": "Secondary/mechanistic analysis of RCT (clinical)",
+      "disease_studied": "Parkinson disease (moderate severity)",
+      "glp1_agonist_used": "Exenatide 2 mg once weekly, subcutaneous, for 48 weeks + 12-week washout (same trial as study 1)",
+      "evidence_of_insulin_resistance": "Not directly measured/quantified as a baseline IR metric; study presumes impaired brain insulin signaling based on prior literature rather than measuring resistance directly",
+      "insulin_signaling_markers_measured": "Neuronal-derived exosome markers: tyrosine-phosphorylated IRS-1 increased by 0.27 AU (95% CI 0.09-0.44, p=.003) at 48 weeks and 0.23 AU (95% CI 0.05-0.41, p=.01) at 60 weeks vs placebo; total Akt increased 0.35 U/mL (95% CI 0.16-0.53, p<.001); phosphorylated mTOR increased 0.22 AU (95% CI 0.04-0.40, p=.02)",
+      "neurodegenerative_outcomes": "MDS-UPDRS part 3 (off-medication) improvements were associated with changes in total mTOR (F=5.343, p=.001)",
+      "mediation_tested": "Not performed as formal statistical mediation analysis; authors report associations between biomarker change and clinical improvement but do not conduct mediation testing (e.g., no Baron-Kenny/bootstrapped indirect-effect analysis)",
+      "main_conclusions": "Results are consistent with target engagement of brain insulin, Akt, and mTOR signaling pathways by exenatide, and support exosome-based biomarkers as objective measures of target engagement."
+    },
+    {
+      "study_id": 3,
+      "citation": "Aviles-Olmos I, Dickson J, Kefalopoulou Z, et al. Exenatide and the treatment of patients with Parkinson's disease. J Clin Invest. 2013;123(6):2730-2736.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/23728174/",
+      "study_type": "Single-blind RCT (clinical, open-label/pilot)",
+      "disease_studied": "Moderate Parkinson's disease",
+      "glp1_agonist_used": "Exenatide, subcutaneous injection, for 12 months (specific dose not stated in available abstract)",
+      "evidence_of_insulin_resistance": "not reported",
+      "insulin_signaling_markers_measured": "not reported",
+      "neurodegenerative_outcomes": "MDS-UPDRS: exenatide group mean improvement of 2.7 points at 12 months vs mean decline of 2.2 points in controls (p=0.037); Mattis Dementia Rating Scale also assessed (results not detailed in available abstract)",
+      "mediation_tested": "Not performed",
+      "main_conclusions": "Results demonstrate a potential cost-efficient approach for obtaining preliminary clinical data on possible biological/disease-modifying effects prior to larger-scale trials."
+    },
+    {
+      "study_id": 4,
+      "citation": "Meissner WG, Remy P, Giordana C, et al. Trial of Lixisenatide in Early Parkinson's Disease. N Engl J Med. 2024;390(13):1176-1185.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38598572/",
+      "study_type": "RCT (clinical)",
+      "disease_studied": "Early Parkinson's disease",
+      "glp1_agonist_used": "Lixisenatide 20 µg/day, subcutaneous, for 12 months, add-on to usual antiparkinsonian treatment",
+      "evidence_of_insulin_resistance": "not reported",
+      "insulin_signaling_markers_measured": "not reported",
+      "neurodegenerative_outcomes": "Primary endpoint, MDS-UPDRS part 3 (on-medication) at 12 months: lixisenatide group stable (-0.04 points) vs placebo group worsened (+3.04 points); adjusted mean difference 3.08 points (p=0.007); no difference in MDS-UPDRS part IV (dyskinesia) scores",
+      "mediation_tested": "not reported",
+      "main_conclusions": "Lixisenatide showed a significant effect on the primary motor disability endpoint (less worsening than placebo) over 12 months in early Parkinson's disease, with gastrointestinal adverse events (notably nausea) more frequent in the treatment group.",
+      "access_note": "Full text is paywalled (NEJM, not on PMC); extraction draws on the PubMed abstract and corroborating PubMed-indexed commentary/search-result snippets, not the complete results/discussion sections."
+    },
+    {
+      "study_id": 5,
+      "citation": "Gejl M, Gjedde A, Egefjord L, et al. In Alzheimer's Disease, 6-Month Treatment with GLP-1 Analog Prevents Decline of Brain Glucose Metabolism: Randomized, Placebo-Controlled, Double-Blind Clinical Trial. Front Aging Neurosci. 2016;8:108.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4877513/",
+      "study_type": "RCT (clinical)",
+      "disease_studied": "Alzheimer's disease",
+      "glp1_agonist_used": "Liraglutide, subcutaneous, titrated 0.6 mg/day (week 1) -> 1.2 mg/day (week 2) -> 1.8 mg/day (weeks 3-26)",
+      "evidence_of_insulin_resistance": "not reported (discussion cites prior literature that liraglutide may reverse insulin-signaling impairments in human AD brain tissue, but this study did not measure it directly)",
+      "insulin_signaling_markers_measured": "not reported (no direct measurement; cited as background only)",
+      "neurodegenerative_outcomes": "Cognition (WMS-IV): no significant between-group change; Brain glucose metabolism (CMRglc via PET): placebo group showed significant decreases across multiple brain regions; liraglutide group showed numerical but non-significant increases (i.e., decline was prevented); no significant group difference in amyloid deposition",
+      "mediation_tested": "Not performed",
+      "main_conclusions": "GLP-1 analog treatment prevented the decline of CMRglc that reflects cognitive impairment, synaptic dysfunction, and disease progression, despite no measured differences in amyloid deposition or cognition between groups."
+    },
+    {
+      "study_id": 6,
+      "citation": "Edison P, Femminella GD, Ritchie C, et al. Liraglutide in mild to moderate Alzheimer's disease: a phase 2b clinical trial (ELAD). Nat Med. 2025;32(1):353-361.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12823385/",
+      "study_type": "Phase 2b RCT (clinical), n=204",
+      "disease_studied": "Mild to moderate Alzheimer's disease",
+      "glp1_agonist_used": "Liraglutide, subcutaneous, starting 0.6 mg/day escalated to 1.8 mg/day within 4 weeks, for 12 months",
+      "evidence_of_insulin_resistance": "not reported",
+      "insulin_signaling_markers_measured": "Not formally measured; authors note the spatial distribution of MRI volumetric (VBM) changes 'closely resembles' the known distribution of IRS-1, described explicitly by the authors as 'an indirect finding'",
+      "neurodegenerative_outcomes": "Primary outcome (cerebral glucose metabolism via PET): no significant difference (p=0.14); ADAS-Exec (cognitive, secondary): slower decline with liraglutide (p=0.01); CDR-SoB and ADCS-ADL: no significant difference; exploratory MRI: less temporal lobe volume loss (p<0.001) and less total gray matter volume loss (p=0.002) with liraglutide",
+      "mediation_tested": "Not performed",
+      "main_conclusions": "Liraglutide showed no significant change in the primary outcome (cerebral glucose metabolism) but showed a beneficial effect on slowing cognitive deterioration (ADAS-Exec) and slowing brain volume loss, with a generally safe and acceptable safety profile."
+    },
+    {
+      "study_id": 7,
+      "citation": "Cummings JL, Atri A, Sano M, et al. Efficacy and safety of oral semaglutide 14 mg (flexible dose) in early-stage symptomatic Alzheimer's disease (evoke and evoke+): two phase 3, randomised, placebo-controlled trials. Lancet. 2026;407(10544):2167-2179.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41865758/",
+      "study_type": "Two Phase 3 RCTs (clinical), 566 sites, 40 countries",
+      "disease_studied": "Early-stage symptomatic Alzheimer's disease (amyloid-confirmed MCI or mild dementia; evoke+ also included participants with significant small-vessel pathology)",
+      "glp1_agonist_used": "Oral semaglutide, up to 14 mg once daily, flexible dose, for up to 156 weeks",
+      "evidence_of_insulin_resistance": "not reported",
+      "insulin_signaling_markers_measured": "not reported",
+      "neurodegenerative_outcomes": "Primary endpoint CDR-SB change from baseline to week 104: 2.3 (semaglutide) vs 2.3 (placebo) in evoke; 2.2 (semaglutide) vs 2.1 (placebo) in evoke+; no statistically significant differences between groups in either trial",
+      "mediation_tested": "not reported",
+      "main_conclusions": "Oral semaglutide was not efficacious in slowing clinical progression in participants with early Alzheimer's disease."
+    },
+    {
+      "study_id": 8,
+      "citation": "Hansen HH, et al. The GLP-1 Receptor Agonist Liraglutide Improves Memory Function and Increases Hippocampal CA1 Neuronal Numbers in a Senescence-Accelerated Mouse Model of Alzheimer's Disease. J Alzheimers Dis. 2015;46(4):877-888.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4878312/",
+      "study_type": "Preclinical (mouse model, n=51 SAMP8 mice)",
+      "disease_studied": "SAMP8 mouse model of age-related sporadic Alzheimer's disease (no amyloid plaques/tau tangles)",
+      "glp1_agonist_used": "Liraglutide, subcutaneous, 100 µg/kg/day or 500 µg/kg/day, once daily for 4 months",
+      "evidence_of_insulin_resistance": "Not reported / not measured; insulin dysfunction discussed only theoretically",
+      "insulin_signaling_markers_measured": "Not reported; no insulin signaling markers measured in this study",
+      "neurodegenerative_outcomes": "T-maze memory retention improved with 100 µg/kg dose (9.0±0.6 trials vs vehicle 14.5±1.1, p<0.001); hippocampal CA1 neuron numbers increased 14.3% with lower dose (p<0.01); novel object recognition not significantly improved; no amyloid plaques or tau tangles detected in this model",
+      "mediation_tested": "Not performed",
+      "main_conclusions": "Liraglutide delayed or partially halted the age-associated decline in spatial memory associated with hippocampal neuronal loss in this early-stage AD model."
+    },
+    {
+      "study_id": 9,
+      "citation": "Batista AF, Forny-Germano L, Clarke JR, et al. The diabetes drug liraglutide reverses cognitive impairment in mice and attenuates insulin receptor and synaptic pathology in a non-human primate model of Alzheimer's disease. J Pathol. 2018;245(1):85-100.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5947670/",
+      "study_type": "Preclinical (mouse and cynomolgus macaque models)",
+      "disease_studied": "Alzheimer's disease model via intracerebroventricular amyloid-beta oligomer (AβO) injection in mice and non-human primates",
+      "glp1_agonist_used": "Liraglutide, 25 nmol/kg intraperitoneal (mice); 0.006 mg/kg week 1 then 0.012 mg/kg thereafter, subcutaneous (primates)",
+      "evidence_of_insulin_resistance": "Not directly assessed as IR; study measured insulin receptor (IR) protein loss rather than a formal insulin-resistance index",
+      "insulin_signaling_markers_measured": "IRα/IRβ subunits markedly reduced in frontal cortex of AβO-injected primates; liraglutide provided partial protection; synaptophysin and PSD-95 decreased with AβOs, attenuated by liraglutide; PKA activity decreased with AβOs, attenuated by liraglutide",
+      "neurodegenerative_outcomes": "Cognitive deficits (novel object recognition, object location memory, contextual fear conditioning) induced by AβOs were prevented and reversed by liraglutide in mice; synapse density decreased 15% in primate frontal cortex with modest protection by liraglutide; tau phosphorylation elevated in AβO-injected primates, with fewer AT100/CP13-positive neurons after liraglutide",
+      "mediation_tested": "Not performed; mechanistic (cAMP/PKA) pathways tested but no formal statistical mediation analysis",
+      "main_conclusions": "GLP-1R agonists represent a promising approach that may help prevent brain insulin resistance and synaptic pathology in AD, supporting potential clinical translation for neuroprotection."
+    },
+    {
+      "study_id": 10,
+      "citation": "Paladugu L, Gharaibeh A, Kolli N, et al. Liraglutide Has Anti-Inflammatory and Anti-Amyloid Properties in Streptozotocin-Induced and 5xFAD Mouse Models of Alzheimer's Disease. Int J Mol Sci. 2021;22(2):860.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7829894/",
+      "study_type": "Preclinical (mouse models: STZ-induced sporadic AD model and 5xFAD transgenic familial AD model)",
+      "disease_studied": "Alzheimer's disease (sporadic and familial models)",
+      "glp1_agonist_used": "Liraglutide, 25 nmol/kg, intraperitoneal, once daily for 30 days",
+      "evidence_of_insulin_resistance": "Not formally quantified (no glucose tolerance test or similar metabolic assay); paper notes STZ disrupts cerebral insulin signaling",
+      "insulin_signaling_markers_measured": "Insulin-degrading enzyme (IDE) restored in cortex/hippocampus with liraglutide; phosphorylated insulin receptor (pIR) increased in cortex of 5xFAD mice (mixed effects in hippocampus); phosphorylated Akt (pAkt) not significantly elevated by liraglutide; phosphorylated GSK3β (pGSK3β) significantly restored by liraglutide",
+      "neurodegenerative_outcomes": "Neuroinflammation (astrocyte/microglial activation) significantly decreased; amyloid-beta significantly reduced in 5xFAD+liraglutide group; no significant difference in degenerating neurons (FJB staining); no significant between-group differences in behavioral/cognitive measures",
+      "mediation_tested": "Not performed; correlations between insulin-signaling change and pathology reported descriptively, no formal statistical mediation test",
+      "main_conclusions": "Liraglutide has neuroprotective effects and potential as an anti-inflammatory and anti-amyloid prophylactic therapy in prodromal AD stages."
+    },
+    {
+      "study_id": 11,
+      "citation": "McClean PL, Hölscher C. Liraglutide can reverse memory impairment, synaptic loss and reduce plaque load in aged APP/PS1 mice, a model of Alzheimer's disease. Neuropharmacology. 2014;76(Pt A):57-67.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/23973293/",
+      "study_type": "Preclinical (transgenic mouse model)",
+      "disease_studied": "APP/PS1 transgenic mice (14-month-old, late-stage AD model)",
+      "glp1_agonist_used": "Liraglutide, 25 nmol/kg bodyweight, intraperitoneal, for 2 months",
+      "evidence_of_insulin_resistance": "not reported",
+      "insulin_signaling_markers_measured": "not reported",
+      "neurodegenerative_outcomes": "Spatial memory improved; overall plaque load reduced 33%; inflammation markers reduced 30%; dentate gyrus neuronal progenitor cells increased 50%; long-term potentiation significantly enhanced; hippocampal/cortical synapse numbers increased; APP and beta-amyloid oligomer levels reduced; insulin-degrading enzyme (IDE) levels increased",
+      "mediation_tested": "Not reported",
+      "main_conclusions": "Liraglutide not only has preventive properties but can also reverse some key pathological hallmarks of AD."
+    },
+    {
+      "study_id": 12,
+      "citation": "Carranza-Naval MJ, del Marco A, Hierro-Bujalance C, et al. Liraglutide reduces vascular damage, neuronal loss, and cognitive impairment in a mixed murine model of Alzheimer's disease and type 2 diabetes. Front Aging Neurosci. 2021;13:741923.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8716860/",
+      "study_type": "Preclinical (mixed APP/PS1 x db/db transgenic mouse model)",
+      "disease_studied": "Mixed Alzheimer's disease and type 2 diabetes model (APP/PS1xdb/db mice)",
+      "glp1_agonist_used": "Liraglutide, 500 µg/kg/day, subcutaneous, for 20 weeks (age 6-26 weeks)",
+      "evidence_of_insulin_resistance": "Not formally assessed; plasma insulin and glucose levels measured but no formal IR index (e.g., HOMA-IR) reported",
+      "insulin_signaling_markers_measured": "IR-A, IR-B, and IGF-1R mRNA expression in cortex measured; 'no differences were observed in the cortex' for any of these markers between groups",
+      "neurodegenerative_outcomes": "Reduced brain/cortical atrophy in diabetic mice; improved neuronal density near and distant from amyloid plaques; reduced amyloid plaque burden; reduced tau hyperphosphorylation; ameliorated spontaneous hemorrhage; reduced microglial activation; improved cognitive function (Morris water maze, object discrimination)",
+      "mediation_tested": "Not performed",
+      "main_conclusions": "Liraglutide reduces brain complications when type 2 diabetes and Alzheimer's disease occur simultaneously, as commonly observed clinically."
+    },
+    {
+      "study_id": 13,
+      "citation": "Zhang Z, et al. A Dual GLP-1/GIP Receptor Agonist Is More Effective than Liraglutide in the A53T Mouse Model of Parkinson's Disease. Parkinsons Dis. 2023;2023:7427136.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10545468/",
+      "study_type": "Preclinical (A53T transgenic mouse model, randomized controlled animal study)",
+      "disease_studied": "A53T transgenic mouse model (mutant human alpha-synuclein) of Parkinson's disease",
+      "glp1_agonist_used": "DA5-CH (dual GLP-1/GIP receptor agonist), 25 nmol/kg/day; Liraglutide, 50 nmol/kg/day; both intraperitoneal for 14 days",
+      "evidence_of_insulin_resistance": "Not directly measured in this study; states 'insulin desensitization was found in the brains' citing prior literature, with no baseline IR quantification here",
+      "insulin_signaling_markers_measured": "Not reported as measured in this study; authors cite prior literature on 'reduced tyrosine 312 phosphorylation of IRS-1' but report no insulin-signaling measurements of their own",
+      "neurodegenerative_outcomes": "Motor tests (rotarod, pole test, open field) improved with both drugs, DA5-CH superior; alpha-synuclein reduced in substantia nigra, DA5-CH more effective; proinflammatory cytokines (TNF-alpha, IL-1beta) decreased; autophagy markers normalized, DA5-CH superior; mitochondrial morphology improved (electron microscopy)",
+      "mediation_tested": "Not performed",
+      "main_conclusions": "DA5-CH was superior to liraglutide on almost all measured parameters and may be a better PD treatment, particularly attributed to better blood-brain barrier penetration."
+    },
+    {
+      "study_id": 14,
+      "citation": "Zhang L, et al. DA5-CH and Semaglutide Protect against Neurodegeneration and Reduce alpha-Synuclein Levels in the 6-OHDA Parkinson's Disease Rat Model. Parkinsons Dis. 2022;2022:1428817.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9678466/",
+      "study_type": "Preclinical (6-OHDA unilateral lesion rat model, randomized controlled animal study, n=40, 4 groups of 10)",
+      "disease_studied": "6-OHDA rat model of Parkinson's disease",
+      "glp1_agonist_used": "Semaglutide, 25 nmol/kg IP every 2 days for 31 days; DA5-CH (dual GLP-1/GIP agonist), 25 nmol/kg IP, same schedule",
+      "evidence_of_insulin_resistance": "Phosphorylated IRS-1 at serine-312 (pIRS-1ser312) measured directly as an IR marker; increased in 6-OHDA+saline group vs sham (p<0.0001)",
+      "insulin_signaling_markers_measured": "pIRS-1ser312/IRS-1 ratio: 6-OHDA increased ratio (p<0.0001); DA5-CH brought ratio to no significant difference vs sham; semaglutide showed a clear reduction vs 6-OHDA+saline (p<0.001); DA5-CH more effective than semaglutide (p<0.05)",
+      "neurodegenerative_outcomes": "Alpha-synuclein monomer and oligomer levels reduced by both drugs (DA5-CH more effective, p<0.05); TH+ dopaminergic neuron counts: 6-OHDA caused loss, semaglutide partially restored (p<0.005), DA5-CH restored to near-normal; apomorphine-induced rotation behavior reduced by both, DA5-CH more potent (p≤0.0004); striatal dopamine content: DA5-CH restored to near-sham levels, semaglutide showed partial recovery",
+      "mediation_tested": "Not performed; insulin-resistance markers and neurodegenerative outcomes were both measured and changed in parallel with drug treatment, but no formal statistical mediation analysis (e.g., indirect-effect testing) was conducted to establish that the IR marker change causally mediates the neuroprotective outcome",
+      "main_conclusions": "Semaglutide showed beneficial effects in this PD model, but DA5-CH was superior; DA5-CH may be a better therapeutic candidate for PD than GLP-1-only agonists that cross the blood-brain barrier less readily."
+    },
+    {
+      "study_id": 15,
+      "citation": "Talbot K. Brain insulin resistance in Alzheimer's disease and its potential treatment with GLP-1 analogs. Neurodegener Dis Manag. 2014;4(1):31-40.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4465775/",
+      "study_type": "Narrative review (no primary experimental data)",
+      "disease_studied": "Alzheimer's disease (preclinical AD, MCI, and dementia stages)",
+      "glp1_agonist_used": "Discusses exenatide and liraglutide (no original dosing data; this is a review)",
+      "evidence_of_insulin_resistance": "Cites ex vivo human postmortem hippocampal tissue stimulation studies: insulin in AD cases induced 29-34% less IR (pY) activation and 90% less IRS-1 (pY) activation than controls, with substantially reduced downstream signaling",
+      "insulin_signaling_markers_measured": "IR-IRS-1-PI3K-Akt-mTOR pathway; serine phosphorylation of IRS-1 at S312, S616, S636; tyrosine phosphorylation of IR and IRS-1 (all discussed from cited literature, not original data)",
+      "neurodegenerative_outcomes": "Summarizes mouse AD model findings: reduced amyloid-beta plaque load, blocked inflammatory responses, promoted neurogenesis, improved long-term potentiation, reduced cognitive deficits with GLP-1 analogs",
+      "mediation_tested": "Not reported; no statistical mediation analysis described in the literature reviewed",
+      "main_conclusions": "Brain insulin resistance is an early, common AD feature closely tied to cognitive decline; GLP-1 analogs show promise for restoring brain insulin sensitivity, particularly at the MCI stage."
+    },
+    {
+      "study_id": 16,
+      "citation": "Kong F, et al. Glucagon-like peptide 1 (GLP-1) receptor agonists in experimental Alzheimer's disease models: a systematic review and meta-analysis of preclinical studies. Front Pharmacol. 2023;14:1205207.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10525376/",
+      "study_type": "Systematic review and meta-analysis of preclinical (animal) studies (26 studies)",
+      "disease_studied": "Alzheimer's disease (animal models)",
+      "glp1_agonist_used": "Liraglutide (n=13 studies), exenatide (n=10), lixisenatide (n=1), (Val8)GLP-1 (n=1), geniposide (n=1)",
+      "evidence_of_insulin_resistance": "Not reported; review discusses insulin-signaling impairment as a contributor to AD pathology but no included study's IR measurements (e.g., HOMA-IR, glucose tolerance test) are extracted/pooled",
+      "insulin_signaling_markers_measured": "IRS-1 phosphorylation, PI3K/Akt pathway activation, GSK3beta inhibition, JNK/ERK signaling, IDE levels (assessed across included studies, not pooled quantitatively)",
+      "neurodegenerative_outcomes": "Meta-analytic pooled effect sizes: learning ability SMD=-1.28 (95% CI -1.68 to -0.89); memory ability SMD=1.26 (95% CI 0.91 to 1.61); Abeta plaque burden SMD=-1.43 (95% CI -2.44 to -0.41); Abeta1-42 deposition SMD=-1.88 (95% CI -2.99 to -0.78); p-tau levels SMD=-1.41 (95% CI -2.14 to -0.68)",
+      "mediation_tested": "Not performed; review discusses insulin-signaling restoration as a proposed mechanism but conducts no statistical mediation analysis of whether IR change explains the GLP-1RA effect on outcomes",
+      "main_conclusions": "GLP-1RAs significantly improve learning/memory and reduce Abeta deposition and tau hyperphosphorylation in AD animal models, through multiple synergistic mechanisms including (but not isolated to) insulin-signaling restoration."
+    },
+    {
+      "study_id": 17,
+      "citation": "Hong CT, Chen JH, Hu CJ. Role of glucagon-like peptide-1 receptor agonists in Alzheimer's disease and Parkinson's disease. J Biomed Sci. 2024;31:102.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11539687/",
+      "study_type": "Narrative review (no primary experimental data)",
+      "disease_studied": "Alzheimer's disease and Parkinson's disease (plus MCI and diabetes context)",
+      "glp1_agonist_used": "Exenatide, liraglutide, lixisenatide, dulaglutide, semaglutide, and novel variants NLY01 and DA-JC1 (discussed, not original data)",
+      "evidence_of_insulin_resistance": "States: 'Insulin resistance in the brain impairs glucose metabolism, which is critical for provision of neuronal energy and maintenance of synaptic function. This impairment can lead to neuronal damage and increased Abeta accumulation' (narrative, citing prior literature)",
+      "insulin_signaling_markers_measured": "cAMP/PKA/pCREB pathway; IRS-1, Akt, GSK-3beta pathways; PI3K/Akt signaling pathway (all discussed from cited literature)",
+      "neurodegenerative_outcomes": "Preclinical studies summarized as showing improved cognition, motor function, reduced tau phosphorylation, reduced Abeta plaques; clinical trials described as showing mixed results - more promising in PD, less favorable in AD",
+      "mediation_tested": "Not reported; no formal statistical mediation analysis referenced",
+      "main_conclusions": "GLP-1RAs show significant neuroprotective potential via multiple pathways, but clinical benefit is disease-stage dependent, with more promise in early-stage PD than in established AD."
+    },
+    {
+      "study_id": 18,
+      "citation": "Helal MM, AbouShawareb H, Abbas OH, Haddad R, Zain Y, Osman ASA, Hassan AK. GLP-1 receptor agonists in Parkinson's disease: an updated comprehensive systematic review with meta-analysis. Diabetol Metab Syndr. 2025;17:352.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12374370/",
+      "study_type": "Systematic review and meta-analysis of clinical trials (5 completed trials, 16 documents, 580 PD patients total; 5 ongoing trials identified)",
+      "disease_studied": "Parkinson's disease",
+      "glp1_agonist_used": "Exenatide, liraglutide, NLY01 (pegylated exenatide analogue), lixisenatide",
+      "evidence_of_insulin_resistance": "Not reported; 'impaired glucose metabolism' and 'insulin resistance' discussed theoretically in background only, not extracted/measured from included trials",
+      "insulin_signaling_markers_measured": "Not reported as a measured outcome in included trials; review mentions mechanistic claim that GLP-1 agents 'resensitize insulin signaling in the brain' but provides no quantitative trial data",
+      "neurodegenerative_outcomes": "Pooled MDS-UPDRS Part III (ON-medication, endpoints): MD=-2.88 (95% CI -5.07 to -0.69, p=0.01); (ON-medication, midpoints): MD=-1.10 (95% CI -2.74 to 0.53, p=0.19, ns); (OFF-medication, endpoints): MD=-1.32 (95% CI -3.91 to 1.26, p=0.32, ns); MDS-UPDRS Part II (endpoints): MD=-1.85 (95% CI -3.72 to 0.02, p=0.05, ns); Part IV (endpoints): MD=-0.30 (95% CI -1.02 to 0.41, p=0.41, ns); Non-Motor Symptoms Scale: MD=-2.31 (95% CI -9.39 to 4.76, p=0.52, ns); adverse events (dyspepsia, vomiting, constipation) significantly favored placebo",
+      "mediation_tested": "Not performed; no included study performed mediation analysis examining insulin resistance as a mechanism",
+      "main_conclusions": "Analyses were inconclusive regarding GLP-1RA efficacy in PD due to limited trials/participants; currently not recommended for clinical use in PD outside research contexts."
+    },
+    {
+      "study_id": 19,
+      "citation": "Mulvaney CA, Duarte GS, Handley J, Evans DJ, Menon S, Wyse R, Emsley HC. GLP-1 receptor agonists for Parkinson's disease. Cochrane Database Syst Rev. 2020 Jul 23;7(7):CD012990.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/32700772/ (PMC mirror: https://pmc.ncbi.nlm.nih.gov/articles/PMC7390475/)",
+      "study_type": "Cochrane systematic review (highest level of evidence per GRADE framework); 2 RCTs, 107 participants",
+      "disease_studied": "Parkinson's disease (motor and non-motor symptoms)",
+      "glp1_agonist_used": "Exenatide only (the only agent with eligible RCTs as of June 2020 search date) - one double-blind trial (62 participants, Athauda 2017) and one single-blind trial (45 participants, Aviles-Olmos 2013)",
+      "evidence_of_insulin_resistance": "Not reported as a measured outcome in either included trial; background section notes 'insulin signalling is desensitised in the brain of people with PD' but this was not assessed in the trials themselves",
+      "insulin_signaling_markers_measured": "not reported",
+      "neurodegenerative_outcomes": "Motor impairment (MDS-UPDRS Part III, primary outcome): low-certainty evidence suggesting exenatide improves motor impairment, MD -3.10 (95% CI -6.11 to -0.09); health-related quality of life: low-certainty evidence of little or no effect; 8 serious adverse events recorded, all considered unrelated to treatment",
+      "mediation_tested": "Not performed",
+      "main_conclusions": "Low- or very low-certainty evidence suggests exenatide may improve motor impairment in PD; persistence of the effect after drug cessation raises the possibility of a disease-modifying effect, but effectiveness for quality of life and non-motor outcomes remains unclear. GRADE certainty: low to very low throughout."
+    },
+    {
+      "study_id": 20,
+      "citation": "Santos P, Sá Filho AS, Aprigliano V, et al. Liraglutide and Exenatide in Alzheimer's Disease and Mild Cognitive Impairment: A Systematic Review and Meta-Analysis of Cognitive Outcomes. Pharmaceutics. 2026;18(1):69.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12844791/",
+      "study_type": "Systematic review and meta-analysis of clinical trials (3 RCTs, 278 participants)",
+      "disease_studied": "Alzheimer's disease and mild cognitive impairment due to AD (biomarker- or clinically-confirmed)",
+      "glp1_agonist_used": "Liraglutide and exenatide (3 RCTs total, 278 participants, mean age 68±7 years, 51% women)",
+      "evidence_of_insulin_resistance": "Not reported; 'brain insulin resistance' discussed conceptually but no measured IR data presented from included trials",
+      "insulin_signaling_markers_measured": "One included trial (Mullins et al.) reported 'modest alterations in exosomal insulin signaling'; not systematically measured/pooled across the 3 trials",
+      "neurodegenerative_outcomes": "Pooled cognitive outcome (ADAS-Cog, MMSE) SMD = -0.21 (95% CI -0.81 to 0.38; I2=47%) - no significant difference vs placebo",
+      "mediation_tested": "Not performed; no included study performed formal mediation analysis of insulin-resistance pathways",
+      "main_conclusions": "Current randomized evidence does not support a meaningful improvement in cognitive outcomes with GLP-1RAs in individuals with AD or MCI due to AD."
+    },
+    {
+      "study_id": 21,
+      "citation": "AbuAlrob MA, Itbaisha A, Abujwaid YK, et al. Exploring the neuroprotective role of GLP-1 agonists against Alzheimer's disease: Real-world evidence from a propensity-matched cohort. J Alzheimers Dis Rep. 2025;9:25424823251388650.",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12536097/",
+      "study_type": "Retrospective propensity-score-matched cohort study (real-world EHR data; not an RCT)",
+      "disease_studied": "Alzheimer's disease / incident dementia in adults aged >=50 years",
+      "glp1_agonist_used": "Liraglutide, semaglutide, dulaglutide, exenatide, or albiglutide (pooled as a drug class; not analyzed individually)",
+      "evidence_of_insulin_resistance": "not reported",
+      "insulin_signaling_markers_measured": "not reported",
+      "neurodegenerative_outcomes": "Dementia incidence 0.20% in GLP-1RA users vs 0.44% in non-users after propensity matching (147,505 per group, from initial cohorts of 635,396 users / 541,928 non-users via the TriNetX EHR platform across 142 healthcare organizations); hazard ratio 0.30 (95% CI 0.28-0.33, p<0.001)",
+      "mediation_tested": "Not performed",
+      "main_conclusions": "GLP-1RA use was associated with a 70% reduced dementia risk in this real-world cohort, warranting further (causal/mechanistic) clinical evaluation. As an observational/non-randomized design, this cannot establish causality or mediation by insulin resistance."
+    }
+  ],
+  "synthesis_summary": {
+    "key_finding": "No identified study — clinical or preclinical — performed a formal statistical mediation analysis (e.g., indirect-effect/bootstrapped mediation testing) of central insulin resistance as a mediator of GLP-1RA neuroprotective/neurodegenerative outcomes. Evidence for the mediation hypothesis is currently mechanistic and correlational, not causally established via mediation statistics.",
+    "strongest_direct_evidence": "Athauda et al. 2019 (JAMA Neurol, secondary analysis of the Exenatide-PD RCT) is the only clinical study identified that directly measured brain insulin-signaling markers (neuronal-exosome IRS-1, Akt, mTOR) in human PD patients and reported a temporal/statistical association with motor outcome change — but stopped short of formal mediation testing. Zhang et al. 2022 (PMC9678466, 6-OHDA rat model) is the clearest preclinical study directly pairing a quantified insulin-resistance marker (pIRS-1-Ser312) with neurodegenerative outcomes (alpha-synuclein, dopaminergic neuron counts, behavior) in the same animals, again without formal mediation analysis.",
+    "clinical_trial_outcomes_pattern": "PD trials of exenatide (Aviles-Olmos 2013, Athauda 2017) and lixisenatide (Meissner 2024/LixiPark) showed positive effects on motor outcomes; AD trials of liraglutide (Gejl 2016, ELAD/Edison 2025) showed mixed results (some imaging/cognitive secondary benefit, no primary-outcome benefit); oral semaglutide phase 3 trials in AD (evoke/evoke+, Cummings 2026) were negative on the primary cognitive endpoint. None of these RCTs measured central/brain insulin resistance as an outcome.",
+    "evidence_gap": "There is a disconnect between the mechanistic literature (which assumes/asserts central insulin resistance as the operative pathway, largely drawing on preclinical brain insulin-signaling marker data) and the clinical trial literature (which has not measured insulin resistance/signaling biomarkers alongside clinical neurodegenerative endpoints, except for the exosome-based Athauda 2019 PD analysis).",
+    "highest_level_evidence_update": "The one Cochrane systematic review identified (Mulvaney et al. 2020, study 19) rates evidence for GLP-1RAs in PD as low-to-very-low certainty, based on only 2 small RCTs (107 participants total, exenatide only); it has not been updated since 2020 and so does not include the larger/newer lixisenatide (LixiPark) or liraglutide PD trials. No Cochrane review specific to GLP-1RAs in Alzheimer's disease was found. A non-Cochrane meta-analysis of AD/MCI cognitive outcomes (Santos et al. 2026, study 20; 3 RCTs, 278 participants) found no significant pooled cognitive benefit (SMD -0.21, ns). A large real-world propensity-matched cohort (AbuAlrob et al. 2025, study 21; ~295,000 matched patients) found a 70% lower dementia incidence with GLP-1RA use (HR 0.30) but, being observational, cannot establish causality or mediation."
+  },
+  "additional_database_sources": {
+    "search_scope_note": "Per user request, additional non-literature databases were queried to complement the PubMed/PMC/clinical-trial search: GEO (transcriptomics), DrugBank (drug mechanisms), KEGG (pathways), OpenAlex (citation analysis), and Cochrane Library (highest-level clinical evidence; Cochrane result is included as study 19 above since it is a literature source).",
+    "GEO_transcriptomics": {
+      "purpose": "Identify transcriptomic datasets on GLP-1RA treatment and/or brain insulin resistance in AD/PD models",
+      "finding": "No GEO dataset was found that directly transcriptomically profiles a GLP-1 receptor agonist treatment in an AD or PD brain model. Targeted searches ('GLP-1 receptor agonist AND brain', 'liraglutide hippocampus', 'exenatide substantia nigra') returned no relevant hits; GLP-1RA-related GEO series that did exist were peripheral/metabolic (e.g., GSE325466 kidney, GSE310028 obesity/osteoarthritis, GSE166648/166647 brainstem appetite-regulation circuits) rather than AD/PD models.",
+      "relevant_background_datasets_no_GLP1_treatment": [
+        {
+          "accession": "GSE262426",
+          "title": "Insulin resistance alters cortical inhibitory neurons and microglia to exacerbate Alzheimer's knock-in mouse phenotypes",
+          "organism": "Mouse (AppNL-G-F/hMapt knock-in AD model x high-fat-diet/STZ diabetes models)",
+          "relevance": "Directly tests insulin-resistance x AD-pathology interaction transcriptomically, but does NOT test any GLP-1RA treatment.",
+          "key_finding": "Chronic high-fat diet (not STZ-induced diabetes) exacerbated cognitive deficits in AD mice via microglial metabolic dysfunction and increased synaptic loss."
+        },
+        {
+          "accession": "GSE306976",
+          "title": "Divergent CNS-Peripheral Signaling Reflects Astrocyte Dysfunction and Contributes to Insulin Resistance in Early Abeta Pathology",
+          "organism": "Mouse (J20/hAPP-J20 transgenic AD model)",
+          "relevance": "Identifies astrocyte dysfunction as a driver of brain-specific insulin resistance in early AD pathology; no GLP-1RA treatment tested.",
+          "key_finding": "Insulin signaling pathway suppression (SGK1 down, IRS2 up) in hippocampus pre-/post-amyloid plaque, described by the authors as CNS-specific and distinct from peripheral T2DM."
+        },
+        {
+          "accession": "GSE34451",
+          "title": "Altered gene expression profiles in hippocampus and prefrontal cortex of type 2 diabetic (Goto-Kakizaki) rats",
+          "organism": "Rat",
+          "relevance": "Supports the 'type 3 diabetes' hypothesis underlying the research question; no GLP-1RA treatment tested.",
+          "key_finding": "Altered genes (galanin, synuclein gamma, UCP2 in hippocampus) implicated cerebral insulin resistance in AD-like neurological changes."
+        }
+      ],
+      "conclusion": "GEO does not currently contain a dataset that would let one directly test the central insulin-resistance-mediation hypothesis for GLP-1RA neuroprotection transcriptomically. The available datasets establish the IR-side of the hypothesis (brain insulin resistance accompanies AD pathology) but not the GLP-1RA-intervention side."
+    },
+    "DrugBank_mechanisms": {
+      "purpose": "Drug mechanism-of-action reference for GLP-1 agonists",
+      "access_note": "go.drugbank.com blocked automated fetch access (HTTP 403) for all attempted drug pages (exenatide DB01276, liraglutide DB06655, semaglutide DB13928); information below is drawn from search-result snippets indexed from DrugBank, not full DrugBank monograph pages.",
+      "exenatide": "GLP-1 receptor agonist (39-amino-acid peptide); binds/activates pancreatic GLP-1R with affinity/potency similar to native GLP-1; glucose-dependent stimulation of insulin secretion, suppression of glucagon, slowed gastric emptying. DrugBank entries focus on peripheral/pancreatic mechanism; no CNS/insulin-resistance-mediation content surfaced in accessible snippets.",
+      "liraglutide": "GLP-1 analog; activates GLP-1R causing glucose-dependent insulin release, glucagon suppression, beta-cell proliferation/differentiation, delayed gastric emptying. DrugBank-indexed content again is peripheral-mechanism-focused.",
+      "semaglutide": "GLP-1 receptor agonist; same core GLP-1R-mediated mechanism; half-life ~7 days (steady state in 4-5 weeks); can delay gastric emptying enough to affect oral drug absorption.",
+      "conclusion": "DrugBank's indexed mechanism-of-action content for these agents is built around their approved (peripheral, metabolic) indications; it does not document a CNS/insulin-resistance-mediated neuroprotective mechanism. This is consistent with neuroprotection being an investigational/off-label use not yet reflected in DrugBank's curated pharmacology."
+    },
+    "KEGG_pathways": {
+      "purpose": "Check whether curated pathway databases formally link insulin signaling to AD/PD pathology",
+      "insulin_signaling_pathway_map": "hsa04910 (Insulin signaling pathway) - canonical IR -> IRS -> PI3K -> Akt -> GSK-3beta / mTOR pathway, well curated.",
+      "alzheimer_disease_pathway_map": "hsa05010 - depicts amyloid-beta/presenilin-driven calcium dysregulation (NMDAR, mGluR5, VGCC), ER stress (PERK-ATF4, IRE1a-XBP1), mitochondrial dysfunction, AGE-RAGE signaling, and proteasome impairment. Insulin receptor, IRS, PI3K, Akt, and GSK-3beta are NOT depicted as integrated components of KEGG's official AD pathway map.",
+      "parkinson_disease_pathway_map": "hsa05012 - depicts SNCA/Parkin/DJ-1/PINK1/LRRK2-driven oxidative stress, Ca2+ dysregulation, mitochondrial dysfunction (including PINK1-Parkin-MFN2 axis), and protein-handling impairment. Insulin signaling components are likewise NOT depicted as part of KEGG's official PD pathway map.",
+      "GLP1_pathway": "KEGG has no standalone 'GLP-1 signaling' pathway map; GLP-1's insulinotropic action is folded into the 'Insulin secretion' pathway (hsa04911), which models GLP-1's potentiation of pancreatic insulin secretion via cAMP/PKA/Epac2 - a peripheral/pancreatic pathway, not a CNS neuroprotection pathway.",
+      "conclusion": "The curated KEGG reference pathways for AD and PD do not currently integrate insulin-signaling pathway components. This means the central-insulin-resistance-mediates-GLP-1RA-neuroprotection hypothesis is not (yet) reflected in canonical curated pathway databases - it remains a research hypothesis supported by primary literature (see papers above) rather than an established, database-curated pathway linkage."
+    },
+    "OpenAlex_citation_analysis": {
+      "purpose": "Identify most-cited/most-central works in this topic area via citation metrics",
+      "most_highly_cited": [
+        {"title": "GLP-1 Receptor Agonists: Beyond Their Pancreatic Effects", "year": 2021, "cited_by_count": 409, "note": "99.84th citation percentile; broad review of pleiotropic GLP-1RA effects including neuroprotection."},
+        {"title": "Pleiotropic Effects of GLP-1 and Analogs on Cell Signaling, Metabolism, and Function", "year": 2018, "cited_by_count": 296},
+        {"title": "Anti-inflammatory role of glucagon-like peptide 1 receptor agonists and its clinical implications", "year": 2024, "cited_by_count": 276}
+      ],
+      "most_central_to_neurodegeneration_topic": {
+        "title": "Central effects of GLP-1: new opportunities for treatments of neurodegenerative diseases",
+        "author_note": "Holscher C., 2013",
+        "cited_by_count": 280,
+        "relevance": "Most directly addresses the research question's mechanism, discussing GLP-1 mimetic protection of substantia nigra dopaminergic neurons (PD) and AD model benefits; foundational/highly-cited starting point for this literature."
+      },
+      "conclusion": "Citation analysis confirms Holscher 2013 and similar early mechanistic reviews as the foundational, most-cited entry points into this field, with citation counts concentrated in broad pleiotropic-effects reviews rather than in papers that isolate/test the insulin-resistance-mediation pathway specifically."
+    }
+  }
+}

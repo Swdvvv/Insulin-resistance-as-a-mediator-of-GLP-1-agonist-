@@ -1,0 +1,133 @@
+subject,relation,object,source_study_id,evidence_type
+Insulin,activates,Insulin receptor (IR),15,canonical_pathway_cited_in_review
+Insulin receptor (IR),phosphorylates,IRS-1,2;15;K-hsa04910,canonical_pathway
+IRS-1,activates,PI3K,15;16;17;K-hsa04910,canonical_pathway
+PI3K,activates,Akt,15;16;17;K-hsa04910,canonical_pathway
+Akt,inhibits,GSK-3beta,10;15;16;17;K-hsa04910,canonical_pathway
+Akt,activates,mTOR,2;15;K-hsa04910,canonical_pathway
+GSK-3beta,promotes,Tau hyperphosphorylation,10;16;17,disease_mechanism_cited_in_review
+GSK-3beta (inhibited),promotes,Glycogen synthase (GYS) activation,K-hsa04910,canonical_pathway_peripheral
+Akt,promotes,GLUT4 translocation,K-hsa04910,canonical_pathway_peripheral
+PI3K/PDK1,activates,Akt,K-hsa04910,canonical_pathway
+AD (Alzheimer's disease hippocampal tissue),shows_reduced,Insulin receptor (IR) tyrosine phosphorylation (29-34% less),15,ex_vivo_human_tissue_study_cited
+AD (Alzheimer's disease hippocampal tissue),shows_reduced,IRS-1 tyrosine phosphorylation (90% less),15,ex_vivo_human_tissue_study_cited
+Brain insulin resistance,associated_with,Cognitive decline,15,review_synthesis
+Exenatide,binds_activates,GLP-1 receptor (GLP-1R),DrugBank,drug_mechanism_reference
+Liraglutide,binds_activates,GLP-1 receptor (GLP-1R),DrugBank,drug_mechanism_reference
+Semaglutide,binds_activates,GLP-1 receptor (GLP-1R),DrugBank,drug_mechanism_reference
+Exenatide,improves,Motor function (MDS-UPDRS III off-medication),1,clinical_RCT
+Exenatide,reduces,Dopamine transporter (DAT) decline,1,clinical_RCT_imaging
+Exenatide,increases,IRS-1 tyrosine phosphorylation (neuronal exosomes),2,clinical_RCT_biomarker
+Exenatide,increases,Total Akt (neuronal exosomes),2,clinical_RCT_biomarker
+Exenatide,increases,Phosphorylated mTOR (neuronal exosomes),2,clinical_RCT_biomarker
+Phosphorylated mTOR change,associated_with,Motor score improvement (MDS-UPDRS III),2,clinical_RCT_correlation_not_mediation
+Exenatide,improves,MDS-UPDRS score,3,clinical_RCT
+Lixisenatide,stabilizes,Motor disability (MDS-UPDRS III on-medication),4,clinical_RCT
+Lixisenatide,causes,Nausea (adverse event),4,clinical_RCT_safety
+Liraglutide,prevents_decline_of,Cerebral glucose metabolism (CMRglc),5,clinical_RCT_imaging
+Alzheimer's disease,causes,Decline in cerebral glucose metabolism,5,clinical_RCT_observation
+Liraglutide,slows,Cognitive decline (ADAS-Exec),6,clinical_RCT
+Liraglutide,reduces,Temporal lobe volume loss,6,clinical_RCT_imaging
+Liraglutide,reduces,Total gray matter volume loss,6,clinical_RCT_imaging
+VBM (brain volume) change pattern,spatially_resembles,IRS-1 distribution,6,clinical_RCT_indirect_speculative
+Liraglutide,does_not_change,Cerebral glucose metabolism (primary outcome),6,clinical_RCT_null_finding
+Oral semaglutide,does_not_improve,CDR-SB (AD clinical progression),7,clinical_RCT_null_finding
+Liraglutide,improves,Spatial memory (T-maze),8,preclinical_mouse
+Liraglutide,increases,Hippocampal CA1 neuron number,8,preclinical_mouse
+Amyloid-beta oligomers,reduce,Insulin receptor (IRalpha/IRbeta) levels in frontal cortex,9,preclinical_primate
+Liraglutide,protects_against,Insulin receptor (IRalpha/IRbeta) loss,9,preclinical_primate
+Amyloid-beta oligomers,decrease,Synaptophysin,9,preclinical_mouse_primate
+Liraglutide,attenuates,Synaptophysin loss,9,preclinical_mouse_primate
+Amyloid-beta oligomers,decrease,PSD-95,9,preclinical_mouse_primate
+Liraglutide,attenuates,PSD-95 loss,9,preclinical_mouse_primate
+Amyloid-beta oligomers,decrease,PKA activity,9,preclinical_mouse_primate
+Liraglutide,attenuates,PKA activity decrease,9,preclinical_mouse_primate
+Liraglutide,prevents_reverses,Cognitive deficits (novel object recognition),9,preclinical_mouse
+Amyloid-beta oligomers,elevate,Tau phosphorylation,9,preclinical_primate
+Liraglutide,reduces,AT100/CP13-positive (phospho-tau) neurons,9,preclinical_primate
+Streptozotocin,disrupts,Cerebral insulin signaling,10,preclinical_mouse
+Liraglutide,restores,Insulin-degrading enzyme (IDE) expression,10,preclinical_mouse
+Liraglutide,increases,Phosphorylated insulin receptor (pIR) in cortex,10,preclinical_mouse
+Liraglutide,does_not_significantly_elevate,Phosphorylated Akt (pAkt),10,preclinical_mouse_null_finding
+Liraglutide,restores,Phosphorylated GSK3beta (pGSK3beta),10,preclinical_mouse
+Liraglutide,decreases,Neuroinflammation (astrocyte/microglial activation),10,preclinical_mouse
+Liraglutide,reduces,Amyloid-beta (5xFAD model),10,preclinical_mouse
+Liraglutide,improves,Spatial memory,11,preclinical_mouse
+Liraglutide,reduces,Amyloid plaque load (33%),11,preclinical_mouse
+Liraglutide,reduces,Inflammation markers (30%),11,preclinical_mouse
+Liraglutide,increases,Dentate gyrus neuronal progenitor cells (50%),11,preclinical_mouse
+Liraglutide,enhances,Long-term potentiation,11,preclinical_mouse
+Liraglutide,increases,Synapse number (hippocampus/cortex),11,preclinical_mouse
+Liraglutide,reduces,APP levels,11,preclinical_mouse
+Liraglutide,reduces,Beta-amyloid oligomer levels,11,preclinical_mouse
+Liraglutide,increases,Insulin-degrading enzyme (IDE) levels,11,preclinical_mouse
+Liraglutide,reduces,Brain/cortical atrophy,12,preclinical_mouse
+Liraglutide,reduces,Amyloid plaque burden,12,preclinical_mouse
+Liraglutide,reduces,Tau hyperphosphorylation,12,preclinical_mouse
+Liraglutide,reduces,Microglial activation,12,preclinical_mouse
+Liraglutide,improves,Cognitive function (Morris water maze),12,preclinical_mouse
+Liraglutide,does_not_change,IR-A/IR-B/IGF-1R mRNA expression in cortex,12,preclinical_mouse_null_finding
+DA5-CH (dual GLP-1/GIP agonist),reduces,Alpha-synuclein (substantia nigra),13,preclinical_mouse
+DA5-CH,improves,Motor function (rotarod/pole test),13,preclinical_mouse
+DA5-CH,decreases,TNF-alpha,13,preclinical_mouse
+DA5-CH,decreases,IL-1beta,13,preclinical_mouse
+DA5-CH,normalizes,Autophagy markers,13,preclinical_mouse
+DA5-CH,improves,Mitochondrial morphology,13,preclinical_mouse
+Liraglutide,reduces,Alpha-synuclein (less effective than DA5-CH),13,preclinical_mouse
+A53T mutation (SNCA),causes,Alpha-synuclein pathology,13,preclinical_model_description
+6-OHDA,increases,pIRS-1(Ser312)/IRS-1 ratio (insulin resistance marker),14,preclinical_rat
+DA5-CH,normalizes,pIRS-1(Ser312)/IRS-1 ratio,14,preclinical_rat
+Semaglutide,reduces,pIRS-1(Ser312)/IRS-1 ratio,14,preclinical_rat
+6-OHDA,increases,Alpha-synuclein monomer/oligomer levels,14,preclinical_rat
+DA5-CH,reduces,Alpha-synuclein monomer/oligomer levels,14,preclinical_rat
+Semaglutide,reduces,Alpha-synuclein monomer/oligomer levels,14,preclinical_rat
+6-OHDA,causes,Dopaminergic (TH+) neuron loss,14,preclinical_rat
+DA5-CH,restores,TH+ dopaminergic neuron count,14,preclinical_rat
+Semaglutide,partially_restores,TH+ dopaminergic neuron count,14,preclinical_rat
+DA5-CH,restores,Striatal dopamine content,14,preclinical_rat
+6-OHDA,induces,Apomorphine-induced rotation behavior,14,preclinical_rat
+DA5-CH,reduces,Apomorphine-induced rotation behavior,14,preclinical_rat
+Semaglutide,reduces,Apomorphine-induced rotation behavior,14,preclinical_rat
+GLP-1 analogs,restore,Brain insulin sensitivity,15,review_synthesis
+GLP-1RAs,improve,Learning ability (pooled SMD -1.28),16,meta_analysis_preclinical
+GLP-1RAs,improve,Memory ability (pooled SMD 1.26),16,meta_analysis_preclinical
+GLP-1RAs,reduce,Abeta plaque burden (pooled SMD -1.43),16,meta_analysis_preclinical
+GLP-1RAs,reduce,Abeta1-42 deposition (pooled SMD -1.88),16,meta_analysis_preclinical
+GLP-1RAs,reduce,p-Tau levels (pooled SMD -1.41),16,meta_analysis_preclinical
+GLP-1RAs,activate,PI3K/Akt pathway,16;17,review_synthesis
+GLP-1RAs,inhibit,GSK-3beta,16,review_synthesis
+GLP-1RAs,modulate,JNK/ERK signaling,16,review_synthesis
+GLP-1RAs,increase,IDE levels,16,review_synthesis
+Brain insulin resistance,impairs,Glucose metabolism,17,review_synthesis
+Brain insulin resistance,leads_to,Neuronal damage,17,review_synthesis
+Brain insulin resistance,increases,Abeta accumulation,17,review_synthesis
+GLP-1RAs,activate,cAMP/PKA/pCREB pathway,17,review_synthesis
+GLP-1RAs,modulate,IRS-1/Akt/GSK-3beta pathway,17,review_synthesis
+GLP-1RAs,reduce,Tau phosphorylation,17,review_synthesis
+GLP-1RAs,reduce,Abeta plaques,17,review_synthesis
+GLP-1RAs,improve,MDS-UPDRS Part III ON-medication score (pooled MD -2.88),18,meta_analysis_clinical
+GLP-1RAs,claimed_to_resensitize,Insulin signaling in brain (unmeasured mechanistic claim),18,review_claim_unverified
+Exenatide,improves,Motor impairment (MDS-UPDRS III; low certainty),19,Cochrane_systematic_review
+Liraglutide/Exenatide,no_significant_effect_on,Cognitive outcome (pooled ADAS-Cog/MMSE SMD -0.21),20,meta_analysis_clinical_null_finding
+GLP-1RA use (drug class),associated_with,Reduced dementia incidence (HR 0.30),21,observational_cohort_correlation_not_causal
+High-fat diet (insulin resistance model),exacerbates,Cognitive deficits in AD mice,G-GSE262426,preclinical_transcriptomic
+High-fat diet,alters,Microglia metabolic state,G-GSE262426,preclinical_transcriptomic
+Microglia (altered metabolic state),increases,Glial-mediated synaptic damage,G-GSE262426,preclinical_transcriptomic
+Astrocyte dysfunction,contributes_to,Brain insulin resistance,G-GSE306976,preclinical_transcriptomic
+Astrocyte dysfunction,downregulates,SGK1,G-GSE306976,preclinical_transcriptomic
+Astrocyte dysfunction,upregulates,IRS-2,G-GSE306976,preclinical_transcriptomic
+Early amyloid-beta pathology,associated_with,Astrocyte dysfunction,G-GSE306976,preclinical_transcriptomic
+Type 2 diabetes (Goto-Kakizaki rat),alters,Galanin expression (hippocampus),G-GSE34451,preclinical_transcriptomic
+Type 2 diabetes (Goto-Kakizaki rat),alters,Synuclein gamma expression (hippocampus),G-GSE34451,preclinical_transcriptomic
+Type 2 diabetes (Goto-Kakizaki rat),alters,UCP2 expression (hippocampus),G-GSE34451,preclinical_transcriptomic
+Cerebral insulin resistance,contributes_to,Alzheimer's-like neurological changes ("type 3 diabetes"),G-GSE34451,preclinical_transcriptomic
+Amyloid-beta/presenilin,dysregulates,Calcium signaling (NMDAR/mGluR5/VGCC),K-hsa05010,canonical_pathway
+Amyloid-beta,induces,ER stress (PERK-ATF4; IRE1alpha-XBP1),K-hsa05010,canonical_pathway
+Amyloid-beta,causes,Mitochondrial dysfunction,K-hsa05010,canonical_pathway
+AGE-RAGE signaling,contributes_to,AD pathology,K-hsa05010,canonical_pathway
+SNCA mutation,causes,Alpha-synuclein aggregation,K-hsa05012,canonical_pathway
+PINK1/Parkin,regulate,Mitochondrial quality control (via MFN2 degradation),K-hsa05012,canonical_pathway
+LRRK2 mutation,contributes_to,PD pathogenesis,K-hsa05012,canonical_pathway
+DJ-1,protects_against,Oxidative stress,K-hsa05012,canonical_pathway
+Mitochondrial dysfunction,causes,Dopaminergic neuron death,K-hsa05012,canonical_pathway
+GLP-1,potentiates,Pancreatic insulin secretion (via cAMP/PKA/Epac2),K-hsa04911,canonical_pathway_peripheral

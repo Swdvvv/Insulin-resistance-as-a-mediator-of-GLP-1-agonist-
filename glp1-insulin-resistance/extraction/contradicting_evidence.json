@@ -1,0 +1,118 @@
+{
+  "question": "Which papers contradict the hypothesis that central insulin resistance mediates GLP-1 receptor agonist neuroprotection in Alzheimer's and Parkinson's disease?",
+  "note": "Drawn entirely from papers already in literature_extraction.json and metabolic_subgroup_extraction.json — no new search performed. Organized by contradiction type, since 'contradicts' covers several distinct logical failure modes for a mediation claim.",
+  "contradiction_types": [
+    {
+      "type": "1. Neuroprotection occurs WITHOUT insulin-pathway engagement (decoupling: effect without mechanism)",
+      "why_this_contradicts_mediation": "If insulin-resistance reversal is the mediator, blocking/absent change in insulin-pathway markers should track with absent neuroprotection. These papers show the opposite: full neuroprotective phenotype with a flat or null insulin-pathway marker.",
+      "papers": [
+        {
+          "citation": "Carranza-Naval et al. 2021 (Front Aging Neurosci) — APP/PS1xdb/db mice",
+          "finding": "Liraglutide reduced brain/cortical atrophy, amyloid plaque burden, tau hyperphosphorylation, microglial activation, and improved cognition (Morris water maze) — but 'no differences were observed in the cortex' for IR-A, IR-B, or IGF-1R mRNA expression between groups. This is the cleanest single counter-example in the entire literature set: the full neuroprotective package occurred with a flat insulin-receptor-pathway readout.",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8716860/"
+        },
+        {
+          "citation": "Paladugu et al. 2021 (Int J Mol Sci) — STZ/5xFAD mice",
+          "finding": "Liraglutide restored IDE, pIR, and pGSK3β, but explicitly 'did not significantly elevate pAkt levels' — the central node of the proposed IR-IRS-1-PI3K-Akt-GSK3β chain failed to move. Separately, despite the biochemical changes that did occur, there was 'no significant difference' in degenerating neurons (FJB staining) or behavioral/cognitive measures — i.e., the biochemistry moved without the phenotype moving, in the same study.",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7829894/"
+        },
+        {
+          "citation": "Gejl et al. 2016 (Front Aging Neurosci) — Liraglutide AD RCT",
+          "finding": "Cerebral glucose metabolism (CMRglc) decline was prevented by liraglutide in a population that was explicitly non-diabetic and normoglycemic at baseline (fasting glucose ~5.6-5.8 mmol/L, HbA1c ~5.5-5.6% in both arms — no insulin resistance to reverse). A neuroprotective-adjacent signal (CMRglc preservation) occurred in the absence of any baseline insulin resistance, which is hard to square with 'reversing insulin resistance' as the operative mechanism in this trial specifically.",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4877513/"
+        }
+      ]
+    },
+    {
+      "type": "2. The literal proposed central marker fails, even as some clinical benefit appears elsewhere",
+      "why_this_contradicts_mediation": "Cerebral glucose metabolism is the most direct available clinical proxy for central insulin/glucose signaling. If this is null while other benefits appear via a different readout (volume, cognition), the mechanism driving the clinical benefit is more likely something other than restored central insulin signaling.",
+      "papers": [
+        {
+          "citation": "Edison et al. 2025 / ELAD (Nat Med) — Liraglutide AD phase 2b",
+          "finding": "Primary outcome (cerebral glucose metabolism via PET) was NOT significant (p=0.14) — the trial's literal designed readout of central insulin/glucose signaling failed. The cognitive benefit that was observed (ADAS-Exec, p=0.01) and the reduced brain volume loss occurred alongside this null metabolic result, suggesting these benefits may not be running through the glucose-metabolism/insulin-signaling channel the trial was built to detect.",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12823385/"
+        },
+        {
+          "citation": "Cummings et al. 2026 / evoke + evoke+ (Lancet) — Oral semaglutide AD phase 3",
+          "finding": "Completely null on the primary endpoint (CDR-SB) in both trials, despite being the largest trial (n=3,808) and the only one with a substantial diabetic/metabolically-impaired subgroup (13.6%, n~516) — exactly the population that should show a signal first if the mechanism were real and clinically relevant. A null result in the best-powered, most metabolically-diverse trial in this literature is a meaningful negative data point against the mechanism mattering clinically, at least at this dose/duration/disease-stage.",
+          "source": "https://pubmed.ncbi.nlm.nih.gov/41865758/"
+        }
+      ]
+    },
+    {
+      "type": "3. Direct empirical test of 'metabolic status predicts response' — found non-significant",
+      "why_this_contradicts_mediation": "This is the most direct possible test of the hypothesis at the patient level, and it came back negative.",
+      "papers": [
+        {
+          "citation": "Athauda et al. 2019 post-hoc analysis (Eur J Neurosci) — Exenatide-PD trial",
+          "finding": "Explicitly tested BMI and insulin resistance as candidate predictors of motor response to exenatide in PD. Neither was among the significant predictors. Tremor-dominant phenotype and milder baseline disease (lower MDS-UPDRS Part 2, shorter disease duration) predicted benefit instead — phenotype/disease-stage factors, not metabolic factors.",
+          "source": "https://pubmed.ncbi.nlm.nih.gov/30070753/"
+        }
+      ]
+    },
+    {
+      "type": "4. Pooled/meta-analytic clinical evidence is null or very-low-certainty, undermining confidence that ANY mechanism (insulin-resistance-mediated or otherwise) reliably translates clinically",
+      "why_this_contradicts_mediation": "If the proposed mechanism reliably drove clinical benefit, you'd expect convergent, reasonably consistent positive findings across trials/agents. Pooled analyses show the opposite for both diseases.",
+      "papers": [
+        {
+          "citation": "Santos et al. 2026 (Pharmaceutics) — meta-analysis, liraglutide/exenatide in AD/MCI, 3 RCTs, n=278",
+          "finding": "Pooled cognitive outcome (ADAS-Cog/MMSE) SMD = -0.21 (95% CI -0.81 to 0.38) — not significant. Conclusion: 'current randomized evidence does not support a meaningful improvement in cognitive outcomes with GLP-1RAs in individuals with AD or MCI due to AD.'",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12844791/"
+        },
+        {
+          "citation": "Helal et al. 2025 (Diabetol Metab Syndr) — meta-analysis, GLP-1RAs in PD, 5 trials, n=580",
+          "finding": "Of 6 pooled outcome measures, only one (MDS-UPDRS III ON-medication, endpoints) reached significance (p=0.01); all others (midpoints, OFF-medication, Part II, Part IV, Non-Motor Symptoms Scale) were non-significant. Conclusion explicitly states results were 'inconclusive' and currently 'not recommended... outside of research contexts.'",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12374370/"
+        },
+        {
+          "citation": "Mulvaney et al. 2020 (Cochrane Database Syst Rev) — GLP-1RAs in PD",
+          "finding": "GRADE certainty rated low-to-very-low throughout, based on only 2 small trials (107 participants total). The highest-rigor evidence-grading body available rates this entire literature as weak — which doesn't contradict a true effect existing, but does contradict treating the mechanism as established.",
+          "source": "https://pubmed.ncbi.nlm.nih.gov/32700772/"
+        }
+      ]
+    },
+    {
+      "type": "5. Drug-superiority differences attributed to a non-insulin mechanism (pharmacokinetics, not pathway engagement)",
+      "why_this_contradicts_mediation": "When researchers explain why one GLP-1-class drug outperforms another, insulin-pathway engagement is often not the explanation offered — undercutting insulin signaling as the operative differentiator.",
+      "papers": [
+        {
+          "citation": "Zhang et al. 2023 (Parkinsons Dis) — DA5-CH vs liraglutide, A53T mice",
+          "finding": "DA5-CH outperformed liraglutide on nearly every measured parameter (motor function, alpha-synuclein, cytokines, autophagy, mitochondrial morphology) — but the paper attributes this to DA5-CH's 'better blood-brain barrier penetration,' not to differential insulin-signaling engagement. No insulin-signaling marker was actually measured in this study at all, despite it being framed as relevant to brain insulin desensitization in the introduction.",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10545468/"
+        }
+      ]
+    },
+    {
+      "type": "6. Canonical curated pathway databases do not encode this mechanism as established",
+      "why_this_contradicts_mediation": "Not a 'contradiction' in the data sense, but a structural one: the field's own curated reference (KEGG) for these diseases doesn't include insulin-signaling components, indicating the broader scientific community has not yet validated this as settled mechanism.",
+      "papers": [
+        {
+          "citation": "KEGG hsa05010 (Alzheimer disease pathway) and hsa05012 (Parkinson disease pathway)",
+          "finding": "Neither curated disease pathway map includes insulin receptor, IRS-1, PI3K, Akt, or GSK-3β as pathway components, despite both maps being actively maintained and detailed on other mechanisms (calcium signaling, ER stress, mitochondrial dysfunction, AGE-RAGE).",
+          "source": "https://www.kegg.jp/pathway/hsa05010 ; https://www.kegg.jp/pathway/hsa05012"
+        }
+      ]
+    },
+    {
+      "type": "7. Large observational effect sizes are inconsistent with null RCTs for the same disease/drug class — a classic confounding signature, not confirmatory evidence",
+      "why_this_contradicts_mediation": "If insulin-resistance reversal genuinely drove a strong, real neuroprotective effect, you would expect RCTs to detect at least a modest version of what large observational studies show. Instead, the gap between huge observational hazard ratios and null RCTs in the same disease area is the textbook signature of healthy-user/indication bias in the observational data — meaning those large effect sizes likely overstate any true causal (insulin-resistance-mediated or otherwise) effect, rather than confirming the mechanism.",
+      "papers": [
+        {
+          "citation": "AbuAlrob et al. 2025 (real-world cohort) — HR 0.30 for dementia incidence",
+          "finding": "vs. the same-disease RCT evidence (Cummings 2026 evoke/evoke+, completely null; Santos 2026 meta-analysis, null). A 70% relative risk reduction in observational data alongside a null RCT in the same population/disease is discordant in a way that should lower confidence in the observational estimate, not raise confidence in the mechanism.",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12536097/"
+        },
+        {
+          "citation": "Wang et al. 2025 (real-world target trial emulation, T2D population) — HR 0.54-0.80 for ADRD vs other antidiabetics",
+          "finding": "Strong relative benefit, but entirely within a diabetic (already metabolically-defined) population comparing drugs against each other — cannot be used to argue insulin-resistance reversal specifically drives the benefit, since all comparators also act on insulin/glucose pathways to varying degrees; the comparison conflates drug-specific and insulin-pathway-general effects.",
+          "source": "https://pubmed.ncbi.nlm.nih.gov/40552638/"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "strongest_single_contradiction": "Carranza-Naval et al. 2021 — full AD/diabetes-model neuroprotective phenotype (atrophy, amyloid, tau, cognition all improved) with a completely flat insulin-receptor-pathway mRNA readout in the same animals. This is the cleanest within-study dissociation of effect from proposed mechanism in the whole literature set.",
+    "strongest_clinical_contradiction": "Athauda et al. 2019 post-hoc analysis — the one study that directly tested 'does metabolic/insulin-resistance status predict who benefits more' and found the answer was no (phenotype and disease-stage predicted response instead).",
+    "overall_pattern": "Across preclinical studies, insulin-pathway markers and neuroprotective/behavioral outcomes frequently move independently of each other (sometimes pathway moves without phenotype, sometimes phenotype moves without pathway). Across clinical trials, the trials with literal central-insulin/glucose-metabolism endpoints (Gejl 2016, ELAD 2025) most often show null results on that specific endpoint even when other benefits appear. And the largest, most metabolically-diverse trial (evoke/evoke+) was completely null. None of this disproves a role for central insulin resistance — but it is a substantial, multi-pronged body of evidence that the simple 'GLP-1RA -> restores central insulin signaling -> neuroprotection' causal chain is not well supported as the dominant or sole explanatory mechanism, and may not be necessary for the (often modest) clinical benefits that do appear."
+  }
+}
