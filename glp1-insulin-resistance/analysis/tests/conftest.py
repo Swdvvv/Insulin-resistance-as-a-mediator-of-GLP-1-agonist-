@@ -1,5 +1,5 @@
-"""Ensure the parent `analysis/` directory (where geo_de_pathway_pipeline.py lives)
-is importable regardless of which directory pytest is invoked from."""
+"""Ensure the parent `analysis/` directory (where glp1_model.py and adni_pipeline.py
+live) is importable regardless of which directory pytest is invoked from."""
 import sys
 from pathlib import Path
 

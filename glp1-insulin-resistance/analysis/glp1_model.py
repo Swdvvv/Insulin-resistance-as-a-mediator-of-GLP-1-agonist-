@@ -260,9 +260,9 @@ def generate_mock_dataset(
     rng = np.random.default_rng(seed)
 
     insulin_genes = fetch_kegg_pathway_genes(
-        "hsa04910" if species == "human" else "mmu04910", mock=True
+        _kegg_pathway_id(species), mock=True
     )
-    decoy_genes = [f"Decoy{i:04d}" if species == "mouse" else f"DECOY{i:04d}"
+    decoy_genes = [f"Decoy{i:04d}" if species in TITLECASE_SPECIES else f"DECOY{i:04d}"
                    for i in range(n_decoy_genes)]
     all_genes = insulin_genes + decoy_genes
 
@@ -430,12 +430,12 @@ def _mock_gene_sets(species: str = "mouse") -> dict[str, list[str]]:
     two unrelated decoy sets, so a correctly-working pipeline should flag the
     insulin set and *not* the decoys as significantly enriched."""
     insulin_genes = fetch_kegg_pathway_genes(
-        "hsa04910" if species == "human" else "mmu04910", mock=True
+        _kegg_pathway_id(species), mock=True
     )
     rng = np.random.default_rng(7)
-    decoy_a = [f"Decoy{i:04d}" if species == "mouse" else f"DECOY{i:04d}"
+    decoy_a = [f"Decoy{i:04d}" if species in TITLECASE_SPECIES else f"DECOY{i:04d}"
                for i in rng.choice(300, size=20, replace=False)]
-    decoy_b = [f"Decoy{i:04d}" if species == "mouse" else f"DECOY{i:04d}"
+    decoy_b = [f"Decoy{i:04d}" if species in TITLECASE_SPECIES else f"DECOY{i:04d}"
                for i in rng.choice(300, size=20, replace=False)]
     return {
         "Insulin signaling pathway (mock-KEGG)": insulin_genes,
@@ -512,6 +512,18 @@ FALLBACK_INSULIN_SIGNALING_GENES_HUMAN = [
 # (e.g. INSR -> Insr); a few diverge and are listed explicitly.
 _HUMAN_TO_MOUSE_OVERRIDES = {"G6PC1": "G6pc", "SLC2A4": "Slc2a4"}
 
+# Species support: human uses ALL-CAPS gene symbols; mouse and rat both use
+# Title Case (e.g. Insr, Irs1) and share the same KEGG-pathway-id prefix scheme
+# (mmuNNNNN / rnoNNNNN), so they're handled identically everywhere below.
+SPECIES_TO_KEGG_PREFIX = {"human": "hsa", "mouse": "mmu", "rat": "rno"}
+TITLECASE_SPECIES = {"mouse", "rat"}
+
+
+def _kegg_pathway_id(species: str, pathway_number: str = "04910") -> str:
+    """e.g. _kegg_pathway_id('rat') -> 'rno04910'."""
+    prefix = SPECIES_TO_KEGG_PREFIX.get(species, "mmu")
+    return f"{prefix}{pathway_number}"
+
 
 def fetch_kegg_pathway_genes(pathway_id: str = "hsa04910", mock: bool = False) -> list[str]:
     """
@@ -523,7 +535,7 @@ def fetch_kegg_pathway_genes(pathway_id: str = "hsa04910", mock: bool = False) -
     if mock:
         log.info("mock=True: skipping KEGG network call, using static fallback list for %s",
                   pathway_id)
-        if pathway_id.startswith("mmu"):
+        if pathway_id[:3] in ("mmu", "rno"):  # mouse, rat: both use Title Case symbols
             return [_HUMAN_TO_MOUSE_OVERRIDES.get(g, g.capitalize())
                     for g in FALLBACK_INSULIN_SIGNALING_GENES_HUMAN]
         return list(FALLBACK_INSULIN_SIGNALING_GENES_HUMAN)
@@ -544,7 +556,7 @@ def fetch_kegg_pathway_genes(pathway_id: str = "hsa04910", mock: bool = False) -
     except Exception as exc:  # noqa: BLE001 - any network/parse failure -> fallback
         log.warning("KEGG fetch failed (%s); using fallback list", exc)
 
-    if pathway_id.startswith("mmu"):
+    if pathway_id[:3] in ("mmu", "rno"):  # mouse, rat: both use Title Case symbols
         return [_HUMAN_TO_MOUSE_OVERRIDES.get(g, g.capitalize())
                 for g in FALLBACK_INSULIN_SIGNALING_GENES_HUMAN]
     return FALLBACK_INSULIN_SIGNALING_GENES_HUMAN
@@ -560,7 +572,7 @@ def highlight_insulin_signaling_genes(
 
     mock=True skips the live KEGG REST call (used by --dry-run and the test suite).
     """
-    pathway_id = "hsa04910" if species == "human" else "mmu04910"
+    pathway_id = _kegg_pathway_id(species)
     insulin_genes = set(fetch_kegg_pathway_genes(pathway_id, mock=mock))
 
     # Case-insensitive matching since mouse symbols are title-case and some
@@ -1202,7 +1214,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     # --- Stage A: geo ---
     geo_parser = subparsers.add_parser("geo", help="GEO download -> DE -> enrichment -> insulin-gene highlighting")
     geo_parser.add_argument("--gse", default="GSE306976", help="GEO series accession (default: GSE306976)")
-    geo_parser.add_argument("--species", choices=["human", "mouse"], default="mouse")
+    geo_parser.add_argument("--species", choices=["human", "mouse", "rat"], default="mouse")
     geo_parser.add_argument("--group-col", default="characteristics_ch1",
                              help="Column in sample metadata that distinguishes groups "
                                   "(inspect sample_metadata.csv after a first run to find the right one)")
@@ -1241,7 +1253,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
 
     # --- Stage C: pipeline demo ---
     pipe_parser = subparsers.add_parser("pipeline", help="Integrated demo: mock GEO output feeds mediation model")
-    pipe_parser.add_argument("--species", choices=["human", "mouse"], default="mouse")
+    pipe_parser.add_argument("--species", choices=["human", "mouse", "rat"], default="mouse")
     pipe_parser.add_argument("--seed", type=int, default=42)
     pipe_parser.add_argument("--outdir", default="output/pipeline")
     pipe_parser.add_argument("--mediation-n", type=int, default=200,

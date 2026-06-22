@@ -60,7 +60,7 @@ def test_build_cohort_recovers_injected_mediation_direction():
     assert {"treatment", "mediator", "outcome_change"}.issubset(cohort.columns)
     assert cohort["treatment"].isin([0.0, 1.0]).all()
 
-    import mediation_model as mm
+    import glp1_model as mm  # mediation_model.py was merged into glp1_model.py
     result = mm.fit_mediation(cohort, "treatment", "mediator", "outcome_change", n_boot=500, seed=2)
     # true_a=-1.0 (treatment lowers HOMA-IR), true_b=+0.5 (higher HOMA-IR worsens outcome)
     # => indirect effect should be negative (treatment -> lower HOMA-IR -> better outcome)

@@ -45,7 +45,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-import mediation_model as mm
+import glp1_model as mm  # mediation_model.py was merged into glp1_model.py; same API (fit_mediation, plot_path_diagram, etc.)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 log = logging.getLogger("adni_pipeline")

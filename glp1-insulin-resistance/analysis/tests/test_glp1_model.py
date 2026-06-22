@@ -44,6 +44,31 @@ def test_strip_known_compression(filename, expected):
 
 
 # --------------------------------------------------------------------------- #
+# A0b. Rat species support (regression test: GSE34451 is a rat study and was
+#      rejected by --species human/mouse only, before this fix)
+# --------------------------------------------------------------------------- #
+
+def test_kegg_pathway_id_supports_rat():
+    assert gm._kegg_pathway_id("human") == "hsa04910"
+    assert gm._kegg_pathway_id("mouse") == "mmu04910"
+    assert gm._kegg_pathway_id("rat") == "rno04910"
+
+
+def test_fetch_kegg_pathway_genes_mock_rat_is_titlecased(monkeypatch):
+    monkeypatch.setattr(gm.requests, "get",
+                         lambda *a, **k: (_ for _ in ()).throw(AssertionError("no network")))
+    genes = gm.fetch_kegg_pathway_genes("rno04910", mock=True)
+    assert "Insr" in genes
+    assert "INSR" not in genes
+
+
+def test_generate_mock_dataset_rat_uses_titlecase_decoys():
+    expr, _, truth = gm.generate_mock_dataset(species="rat", n_decoy_genes=20, seed=14)
+    assert any(g.startswith("Decoy") for g in truth["decoy_genes_in_universe"])
+    assert not any(g.startswith("DECOY") for g in truth["decoy_genes_in_universe"])
+
+
+# --------------------------------------------------------------------------- #
 # A1. Mock data generator
 # --------------------------------------------------------------------------- #
 
