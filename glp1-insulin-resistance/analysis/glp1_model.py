@@ -87,6 +87,16 @@ log = logging.getLogger("glp1_model")
 # A1. DOWNLOAD EXPRESSION MATRIX
 # --------------------------------------------------------------------------- #
 
+def _strip_known_compression(p: Path) -> str:
+    """Lowercase filename with a trailing .gz/.bz2/.zip/.xz stripped, for extension
+    sniffing on compressed supplementary files (e.g. 'counts.csv.gz' -> 'counts.csv')."""
+    name = p.name.lower()
+    for comp_ext in (".gz", ".bz2", ".zip", ".xz"):
+        if name.endswith(comp_ext):
+            return name[: -len(comp_ext)]
+    return name
+
+
 def download_expression_matrix(gse_id: str, dest_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame, str]:
     """
     Fetch a GEO series and return (expression_matrix, sample_metadata, data_kind).
@@ -99,11 +109,23 @@ def download_expression_matrix(gse_id: str, dest_dir: Path) -> tuple[pd.DataFram
     Strategy:
       a) Use GEOparse to pull the SOFT/series-matrix file for sample metadata (always available).
       b) Try to build the expression matrix from the embedded GSM table data
-         (works for classic microarray series, e.g. GSE34451).
+         (works for classic microarray series with a Series Matrix File, e.g. GSE34451 —
+         this is the most reliable path and needs no supplementary-file parsing at all).
       c) If (b) yields nothing usable (common for RNA-seq series where expression
-         values live in a separate supplementary file, e.g. GSE306976/GSE262426),
-         download supplementary files and parse the first tabular file found
-         (csv/tsv/txt/xlsx) into a genes x samples matrix.
+         values live in a separate supplementary file), download per-SAMPLE (GSM-level)
+         supplementary files AND per-SERIES (GSE-level) supplementary files (GEOparse's
+         download_supplementary_files() only fetches the former; many series, e.g.
+         GSE262426/GSE306976, attach their actual data file to the Series record instead),
+         extract any .tar/.tar.gz archives found, then parse the first tabular file
+         (csv/tsv/txt/xlsx, optionally .gz-compressed) into a genes x samples matrix.
+
+    Known caveat: not every series' supplementary file is actually a gene-level
+    expression/count matrix even when it's a parseable table — e.g. GSE306976's
+    only supplementary file is 'GSE306976_Read_Quantification_Summary_stat.xlsx',
+    which is per-sample QC/alignment statistics, not gene counts. This function
+    cannot detect that semantic mismatch automatically; inspect the parsed
+    expression_matrix.csv's row index after a run to confirm it looks like gene
+    symbols/IDs, not QC metric names, before trusting downstream results.
     """
     import GEOparse  # local import: optional heavy dependency, only needed at runtime
 
@@ -136,27 +158,66 @@ def download_expression_matrix(gse_id: str, dest_dir: Path) -> tuple[pd.DataFram
     log.info("No usable embedded table data; downloading supplementary files for %s", gse_id)
     supp_dir = dest_dir / f"{gse_id}_supp"
     supp_dir.mkdir(exist_ok=True)
+
+    # (c1) GSM-level (per-sample) supplementary files, via GEOparse.
     gse.download_supplementary_files(directory=str(supp_dir), download_sra=False)
 
+    # (c2) GSE-level (series-level) supplementary file(s). GEOparse's
+    # download_supplementary_files() above only walks gse.gsms, so a series whose
+    # data file is attached to the Series record itself (filename prefixed with
+    # the GSE accession, not a GSM accession — e.g. GSE306976_Read_Quantification...)
+    # is silently skipped unless we fetch it ourselves here.
+    series_supp_urls = gse.metadata.get("supplementary_file", []) if hasattr(gse, "metadata") else []
+    for url in series_supp_urls:
+        fname = url.rstrip("/").split("/")[-1]
+        dest_path = supp_dir / fname
+        if dest_path.exists() and dest_path.stat().st_size > 0:
+            continue
+        log.info("Downloading series-level supplementary file: %s", fname)
+        try:
+            resp = requests.get(url, timeout=120)
+            resp.raise_for_status()
+            dest_path.write_bytes(resp.content)
+        except Exception as exc:  # noqa: BLE001 - network failure on one URL shouldn't abort the whole run
+            log.warning("Failed to download series-level supplementary file %s: %s", url, exc)
+
+    # (c3) Extract any .tar/.tar.gz archives found so far (common for RNA-seq
+    # series that bundle one file per sample, e.g. GSE262426_RAW.tar).
+    import tarfile
+
+    for archive in list(supp_dir.rglob("*.tar")) + list(supp_dir.rglob("*.tar.gz")):
+        log.info("Extracting archive: %s", archive.name)
+        try:
+            with tarfile.open(archive) as tf:
+                tf.extractall(path=supp_dir / archive.stem)
+        except Exception as exc:  # noqa: BLE001
+            log.warning("Failed to extract %s: %s", archive.name, exc)
+
+    tabular_extensions = (".csv", ".tsv", ".txt", ".xlsx")
     candidate_files = sorted(
         p for p in supp_dir.rglob("*")
-        if p.suffix.lower() in {".csv", ".tsv", ".txt", ".xlsx"} and p.stat().st_size > 0
+        if p.is_file() and _strip_known_compression(p).endswith(tabular_extensions)
+        and p.stat().st_size > 0
     )
     if not candidate_files:
         raise FileNotFoundError(
             f"No parseable supplementary expression file found for {gse_id} in {supp_dir}. "
-            "Inspect the GEO record manually (some series only deposit raw FASTQ/SRA, "
-            "which requires an alignment/quantification pipeline outside this script's scope)."
+            "Inspect the GEO record manually (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?"
+            f"acc={gse_id}) — some series only deposit raw FASTQ/SRA, which requires an "
+            "alignment/quantification pipeline outside this script's scope, and some series' "
+            "only supplementary file is QC/summary statistics rather than a gene-level matrix."
         )
 
     # Heuristic: pick the largest candidate file (usually the full counts matrix,
     # as opposed to small per-sample peak/QC files).
     chosen = max(candidate_files, key=lambda p: p.stat().st_size)
     log.info("Parsing supplementary expression file: %s", chosen.name)
-    sep = "\t" if chosen.suffix.lower() in {".tsv", ".txt"} else ","
-    if chosen.suffix.lower() == ".xlsx":
+    stripped_name = _strip_known_compression(chosen)
+    sep = "\t" if stripped_name.endswith((".tsv", ".txt")) else ","
+    if stripped_name.endswith(".xlsx"):
         expr = pd.read_excel(chosen, index_col=0)
     else:
+        # compression="infer" (pandas default) auto-detects .gz/.bz2/.zip/.xz from the filename.
         expr = pd.read_csv(chosen, sep=sep, index_col=0)
 
     expr = expr.apply(pd.to_numeric, errors="coerce").dropna(how="all")

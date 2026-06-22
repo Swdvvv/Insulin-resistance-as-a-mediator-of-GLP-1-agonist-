@@ -13,6 +13,8 @@ Organized in three sections mirroring the module's three stages:
 """
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import pytest
@@ -23,6 +25,23 @@ import glp1_model as gm
 # =========================================================================== #
 # STAGE A — GEO PIPELINE TESTS
 # =========================================================================== #
+
+# --------------------------------------------------------------------------- #
+# A0. Supplementary-file extension sniffing (regression test for the real bug
+#     found on GSE306976 in Colab: GEOparse only fetches GSM-level files, and
+#     the original suffix check didn't strip .gz/.bz2/.zip/.xz before matching)
+# --------------------------------------------------------------------------- #
+
+@pytest.mark.parametrize("filename,expected", [
+    ("counts.csv.gz", "counts.csv"),
+    ("counts.tsv.GZ", "counts.tsv"),
+    ("data.txt.bz2", "data.txt"),
+    ("matrix.csv", "matrix.csv"),  # uncompressed: unchanged
+    ("summary.xlsx", "summary.xlsx"),
+])
+def test_strip_known_compression(filename, expected):
+    assert gm._strip_known_compression(Path(filename)) == expected
+
 
 # --------------------------------------------------------------------------- #
 # A1. Mock data generator
