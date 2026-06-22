@@ -109,10 +109,15 @@ def test_de_counts_path_with_pydeseq2():
     assert recall > 0.3
 
 
-def test_de_raises_on_more_than_two_groups():
+def test_de_raises_when_only_one_group_present_after_filtering():
+    """run_differential_expression() filters samples to isin([control, treatment])
+    BEFORE checking for exactly 2 groups, so an unrelated third label elsewhere in
+    the metadata gets filtered out and never reaches the check. The check instead
+    guards against the filtered set collapsing to 0 or 1 distinct label — e.g. if
+    one arm has no samples at all, as constructed here."""
     expr, meta, _ = gm.generate_mock_dataset(seed=3)
     meta = meta.copy()
-    meta.iloc[0, 0] = "third_group"
+    meta["group"] = "control"  # no "treatment" samples exist anymore
     with pytest.raises(ValueError):
         gm.run_differential_expression(expr, meta, "group", "control", "treatment", "normalized")
 
