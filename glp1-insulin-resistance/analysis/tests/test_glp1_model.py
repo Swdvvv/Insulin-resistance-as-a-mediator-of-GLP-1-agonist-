@@ -426,6 +426,31 @@ def test_run_mediation_dry_run_end_to_end(tmp_path, monkeypatch):
     assert (tmp_path / "output" / "mediation" / "dry_run_path_diagram.png").exists()
 
 
+def test_run_mediation_power_analysis_uses_power_n_boot_not_n_boot(tmp_path, monkeypatch):
+    """Regression test: --power-n-boot must be wired through to run_power_analysis(),
+    NOT the shared --n-boot (which is for a single final fit elsewhere). Before this
+    fix, args.power_n_boot didn't exist and the power-analysis branch silently ignored
+    whatever n_boot was requested, always using run_power_analysis()'s internal
+    default — this also caused a real ~30-minute runtime blowup when --n-boot's
+    default (5000) was naively wired through instead, since it's nested inside
+    n_sims x len(n_list) simulations."""
+    pytest.importorskip("matplotlib")
+    monkeypatch.chdir(tmp_path)
+    args = gm.argparse.Namespace(
+        csv=None, treatment="treatment", mediator="mediator", outcome="outcome",
+        covariates="", n_boot=5000,  # deliberately large + irrelevant to this branch
+        seed=42, outdir="output/mediation",
+        simulate_illustration=False, assumed_proportion_mediated=0.4,
+        power_analysis=True, true_a=0.5, true_b=0.5, true_cprime=0.2,
+        n_list="30,100", n_sims=5, power_n_boot=50,  # small + fast
+        dry_run=False,
+    )
+    result = gm.run_mediation(args)  # must complete quickly; would hang ~minutes if n_boot=5000 were used
+    assert result is None  # power-analysis branch returns None (writes CSV/plot instead)
+    assert (tmp_path / "output" / "mediation" / "power_analysis.csv").exists()
+    assert (tmp_path / "output" / "mediation" / "power_curve.png").exists()
+
+
 # =========================================================================== #
 # STAGE C — INTEGRATED PIPELINE DEMO TESTS
 # =========================================================================== #

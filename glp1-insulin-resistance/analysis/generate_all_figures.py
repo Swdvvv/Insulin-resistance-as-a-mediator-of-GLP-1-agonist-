@@ -60,9 +60,11 @@ def main() -> None:
          "--outdir", "output/mediation_illustration"])
     collect(ANALYSIS_DIR / "output" / "mediation_illustration", "mediation_illustration")
 
+    # Uses glp1_model.py's default --n-list/--n-sims/--power-n-boot (deliberately
+    # lightweight: ~240K total regression fits, a few minutes) rather than the
+    # original 6-size/300-sim/5000-boot combination, which took ~30 min in practice.
     run([py, "glp1_model.py", "mediation", "--power-analysis",
          "--true-a", "0.27", "--true-b", "0.5", "--true-cprime", "1.75",
-         "--n-list", "62,150,300,600,1200,3808", "--n-sims", "300",
          "--outdir", "output/power"])
     collect(ANALYSIS_DIR / "output" / "power", "mediation_power")
 

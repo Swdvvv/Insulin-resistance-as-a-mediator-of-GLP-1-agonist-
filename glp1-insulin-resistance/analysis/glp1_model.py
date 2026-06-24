@@ -1108,9 +1108,18 @@ def run_mediation(args: argparse.Namespace) -> MediationResult | None:
 
     elif args.power_analysis:
         n_list = [int(x) for x in args.n_list.split(",")]
+        # Compute cost is roughly n_sims * len(n_list) * (1 + power_n_boot) * 3
+        # regression fits — note this uses --power-n-boot, NOT --n-boot (the latter
+        # is for a single final fit elsewhere and is deliberately NOT used here,
+        # since nesting it inside n_sims x len(n_list) simulations would explode
+        # runtime, e.g. the old default combination ran for ~30 min on a typical run).
+        est_fits = args.n_sims * len(n_list) * (1 + args.power_n_boot) * 3
+        log.info("Power analysis cost estimate: ~%d total regression fits "
+                  "(n_sims=%d x %d sample sizes x (1+power_n_boot=%d) x 3 fits each)",
+                  est_fits, args.n_sims, len(n_list), args.power_n_boot)
         power_df = run_power_analysis(
             n_list=n_list, true_a=args.true_a, true_b=args.true_b, true_cprime=args.true_cprime,
-            n_sims=args.n_sims, seed=args.seed,
+            n_sims=args.n_sims, n_boot=args.power_n_boot, seed=args.seed,
         )
         print(power_df.to_string(index=False))
         power_df.to_csv(outdir / "power_analysis.csv", index=False)
@@ -1246,8 +1255,20 @@ def build_arg_parser() -> argparse.ArgumentParser:
     med_parser.add_argument("--true-a", type=float, default=0.27)
     med_parser.add_argument("--true-b", type=float, default=0.5)
     med_parser.add_argument("--true-cprime", type=float, default=1.75)
-    med_parser.add_argument("--n-list", default="62,150,300,600,1200,3808")
-    med_parser.add_argument("--n-sims", type=int, default=300)
+    med_parser.add_argument("--n-list", default="62,300,1200,3808",
+                             help="Comma-separated sample sizes to evaluate. Default trimmed to 4 "
+                                  "values (was 6) since cost scales linearly with this count.")
+    med_parser.add_argument("--n-sims", type=int, default=100,
+                             help="Simulated trials per sample size. Default lowered from 300 to 100 "
+                                  "(see --power-n-boot note: cost is n_sims x len(n_list) x (1+power_n_boot) x 3).")
+    med_parser.add_argument("--power-n-boot", type=int, default=200,
+                             help="Bootstrap resamples PER SIMULATED TRIAL during --power-analysis "
+                                  "(deliberately separate from --n-boot, which controls a single final "
+                                  "fit's precision elsewhere). This value is nested inside n_sims x "
+                                  "len(n_list) simulations, so it dominates runtime far more than "
+                                  "--n-boot does for any other mode — keep this low (100-300 is typical "
+                                  "for a binary CI-excludes-zero decision per simulation; raise only if "
+                                  "you have time to spare).")
     med_parser.add_argument("--dry-run", action="store_true",
                              help="Quick offline smoke test on arbitrary simulated data")
 
