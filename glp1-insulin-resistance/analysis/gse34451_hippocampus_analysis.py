@@ -71,6 +71,21 @@ GENE_INTERPRETATION_NOTES = {
                 "adaptation marker often altered alongside insulin resistance.",
     "Acacb": "Acetyl-CoA carboxylase beta — regulates fatty-acid oxidation; commonly "
              "dysregulated in insulin-resistant tissue.",
+    "Pde3b": "Phosphodiesterase 3B — a direct downstream target of Akt in canonical insulin "
+             "signaling (insulin -> PI3K/Akt -> PDE3B activation -> suppressed lipolysis via "
+             "lowered cAMP). One of the most directly on-pathway genes in this list, not just "
+             "thematically related.",
+    "Prkab2": "AMPK beta-2 regulatory subunit. AMPK is an energy-sensing kinase that "
+              "cross-talks with and is often reciprocally regulated relative to insulin/Akt "
+              "signaling — altered AMPK subunit expression is a recognized companion to "
+              "insulin resistance.",
+    "Prkab1": "AMPK beta-1 regulatory subunit — same AMPK/insulin-signaling cross-talk "
+              "rationale as Prkab2 (the beta-1 vs beta-2 subunits have tissue-specific "
+              "expression patterns).",
+    "Prkar2a": "PKA regulatory subunit RII-alpha — cAMP/PKA signaling intersects with "
+               "insulin signaling at multiple points (e.g. via PDE3B's regulation of cAMP).",
+    "Eif4ebp1": "4E-BP1 — a direct downstream target of mTOR, the terminal node of the "
+                "PI3K/Akt/mTOR arm of insulin signaling; regulates cap-dependent translation.",
 }
 
 
@@ -163,7 +178,8 @@ def main() -> None:
         fig, axes = plt.subplots(2, 3, figsize=(13, 7))
         for ax, gene in zip(axes.flat, top_genes):
             plot_df = pd.DataFrame({"expression": expr_sub.loc[gene], "group": meta_sub["group"]})
-            sns.boxplot(data=plot_df, x="group", y="expression", ax=ax, palette=["#1b9e77", "#d95f02"])
+            sns.boxplot(data=plot_df, x="group", y="expression", hue="group", legend=False,
+                        ax=ax, palette=["#1b9e77", "#d95f02"])
             sns.stripplot(data=plot_df, x="group", y="expression", ax=ax, color="black", size=5)
             ax.set_title(f"{gene} (raw p={de.loc[gene,'pvalue']:.3g}, padj={de.loc[gene,'padj']:.3g})")
         fig.suptitle(f"Top insulin-signaling genes by raw p-value (n={mask.sum()//2}/group)", y=1.02)
