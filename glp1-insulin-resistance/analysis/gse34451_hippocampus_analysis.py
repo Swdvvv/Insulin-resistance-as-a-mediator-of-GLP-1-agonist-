@@ -54,6 +54,25 @@ TREATMENT_GROUP = "T2D"     # one of: Control, T1D, T2D
 SPECIES = "rat"
 OUTDIR = Path("output") / f"{GSE_ID}_{REGION.lower()}_{TREATMENT_GROUP.lower()}"
 
+# One-line biological rationale for genes that showed up as nominally interesting
+# in the original Hippocampus/Control-vs-T2D run, for the printed summary. This is
+# *prior biological knowledge about the gene*, not a result of this analysis — it
+# explains why a hit is plausible/interesting, it does not make the hit significant.
+GENE_INTERPRETATION_NOTES = {
+    "Insr": "Insulin receptor. Upregulation under metabolic disease is consistent with "
+            "compensatory insulin-receptor upregulation in response to systemic insulin "
+            "resistance — a recognized phenomenon in insulin-resistant peripheral tissue.",
+    "Gys2": "Glycogen synthase 2 — a direct downstream effector of the Akt -> GSK-3beta "
+            "arm of insulin signaling. A change here is thematically on-pathway, not just "
+            "incidentally insulin-related.",
+    "Mapk8": "JNK1. A known driver of inhibitory IRS-1 serine phosphorylation — i.e. a "
+             "plausible upstream CAUSE of reduced insulin signaling, not just a marker of it.",
+    "Ppargc1a": "PGC-1alpha, master regulator of mitochondrial biogenesis — a metabolic "
+                "adaptation marker often altered alongside insulin resistance.",
+    "Acacb": "Acetyl-CoA carboxylase beta — regulates fatty-acid oxidation; commonly "
+             "dysregulated in insulin-resistant tissue.",
+}
+
 
 def main() -> None:
     OUTDIR.mkdir(parents=True, exist_ok=True)
@@ -63,6 +82,11 @@ def main() -> None:
     import GEOparse
 
     # --- 1. Download series + platform annotation -------------------------
+    # WHY: download_expression_matrix() pulls the raw microarray values, but for an
+    # Agilent platform (this one, GPL15011) those values are indexed by the array's
+    # internal feature/probe ID, NOT a gene symbol. The platform (GPL) record holds
+    # the probe-ID -> gene-symbol mapping separately, so we fetch it explicitly here
+    # rather than assume the series data already comes gene-annotated.
     gm.log.info("Downloading %s expression data...", GSE_ID)
     expr, sample_metadata, data_kind = gm.download_expression_matrix(GSE_ID, OUTDIR.parent / f"{GSE_ID}_raw")
 
@@ -70,6 +94,9 @@ def main() -> None:
     gpl = GEOparse.get_GEO(geo=GPL_ID, destdir=str(OUTDIR.parent / f"{GSE_ID}_raw"), silent=True)
 
     # --- 2. Map probe IDs -> gene symbols, collapse multi-probe genes -----
+    # WHY: several probes on the array can target the same gene (different regions of
+    # the same transcript, or splice variants); averaging is the standard simple
+    # approach to get one expression value per gene before differential expression.
     id_to_symbol = gpl.table.set_index("ID")["GENE_SYMBOL"]
     id_to_symbol.index = id_to_symbol.index.astype(str)
     expr_annotated = expr.copy()
@@ -80,6 +107,10 @@ def main() -> None:
     expr_annotated.to_csv(OUTDIR / "expr_matrix_annotated.csv")
 
     # --- 3. Derive clean group/region labels from the "title" field -------
+    # WHY: GEO's raw sample_metadata columns (characteristics_ch1, source_name_ch1)
+    # mix region + group + replicate number into single strings with no exact-match
+    # repeated label, so they can't be used directly as a "--group-col" filter. The
+    # "title" field (e.g. "Hippocampus_T2D_rep1") is the cleanest source to parse.
     sample_metadata["group"] = sample_metadata["title"].str.extract(r"_(T2D|T1D|Control)_")
     sample_metadata["region"] = sample_metadata["title"].str.extract(r"^([A-Za-z]+)_")
 
@@ -93,6 +124,11 @@ def main() -> None:
                 meta_sub["group"].value_counts().to_dict())
 
     # --- 4. Differential expression + insulin-gene highlighting -----------
+    # WHY: data_kind="normalized" (microarray intensities, not raw RNA-seq counts) ->
+    # run_differential_expression() takes the Welch's-t-test + BH-FDR path rather than
+    # PyDESeq2. highlight_insulin_signaling_genes() then cross-references the KEGG
+    # insulin-signaling gene set (mock=False -> live KEGG fetch, falling back to the
+    # static list only on network failure) against whichever genes survived annotation.
     de = gm.run_differential_expression(expr_sub, meta_sub, "group", CONTROL_GROUP, TREATMENT_GROUP, data_kind)
     insulin_subset = gm.highlight_insulin_signaling_genes(de, species=SPECIES, mock=False)
     de.to_csv(OUTDIR / "de_results.csv")
@@ -101,6 +137,11 @@ def main() -> None:
     n_fdr_sig = int((de["padj"] < 0.05).sum())
     n_insulin_fdr_sig = int((insulin_subset["padj"] < 0.05).sum())
     n_insulin_raw_sig = int((insulin_subset["pvalue"] < 0.05).sum())
+    # WHY both raw and FDR-corrected counts are reported: with n=3/group and ~17,000
+    # genes tested genome-wide, FDR-significance for any single gene is a high bar.
+    # Raw (uncorrected) p-values are reported alongside as the honest, exploratory/
+    # hypothesis-generating signal — never substitute one for the other in a write-up
+    # without saying which you mean.
 
     # --- 5. Visualizations --------------------------------------------------
     gm.plot_volcano(de, OUTDIR / "volcano_plot.png")
@@ -207,9 +248,25 @@ def main() -> None:
         "Top 10 insulin-signaling genes by raw p-value:",
         insulin_subset.sort_values("pvalue").head(10)[["log2FoldChange", "pvalue", "padj"]].to_string(),
         "",
-        "LIMITATION: n=3 per group per region (the real sample size of this public dataset). "
-        "Treat all findings here as exploratory/hypothesis-generating, not confirmatory.",
     ]
+
+    # WHY: attach prior-biology context only for genes that actually showed up as
+    # nominally significant here AND have a known note — this is interpretive aid for
+    # report-writing, not a claim that these annotations make the finding significant.
+    nominal_hits = insulin_subset[insulin_subset["pvalue"] < 0.05].index
+    annotated_hits = [g for g in nominal_hits if g in GENE_INTERPRETATION_NOTES]
+    if annotated_hits:
+        summary_lines.append("Biological context for nominally significant hits (prior knowledge, not derived "
+                              "from this dataset):")
+        for gene in annotated_hits:
+            direction = "up" if insulin_subset.loc[gene, "log2FoldChange"] > 0 else "down"
+            summary_lines.append(f"  - {gene} ({direction} in {TREATMENT_GROUP}): {GENE_INTERPRETATION_NOTES[gene]}")
+        summary_lines.append("")
+
+    summary_lines.append(
+        "LIMITATION: n=3 per group per region (the real sample size of this public dataset). "
+        "Treat all findings here as exploratory/hypothesis-generating, not confirmatory."
+    )
     summary_text = "\n".join(summary_lines)
     (OUTDIR / "summary.txt").write_text(summary_text)
     print(summary_text)
