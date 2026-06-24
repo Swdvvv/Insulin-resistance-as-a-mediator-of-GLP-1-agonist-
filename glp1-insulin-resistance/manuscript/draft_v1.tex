@@ -1,0 +1,495 @@
+% =============================================================================
+% Central Insulin Resistance as a Mediator of GLP-1 Receptor Agonist
+% Neuroprotection in Alzheimer's and Parkinson's Disease
+% Draft v1 -- structure/formatting skeleton with placeholder figures.
+% Populate TODO markers as your own analysis/figures become available.
+% =============================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% ---------------------------------------------------------------- PACKAGES --
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+\usepackage[round]{natbib}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% Quick visual placeholder for figures not yet attached -- replace each
+% \FigurePlaceholder call with a real \includegraphics{figures/...} once you
+% have the image. Renders as a labeled empty box so the document still
+% compiles cleanly before any real figures exist.
+\newcommand{\FigurePlaceholder}[2]{%
+  \fbox{\parbox[c][#1][c]{0.92\textwidth}{\centering\color{gray}\itshape #2}}%
+}
+
+\onehalfspacing
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries}{\thesubsection}{1em}{}
+
+% ----------------------------------------------------------------- TITLE ---
+\title{%
+  Central Insulin Resistance as a Mediator of GLP-1 Receptor Agonist\\
+  Neuroprotection in Alzheimer's and Parkinson's Disease:\\
+  \large A Systematic Evidence Synthesis and Exploratory Transcriptomic Analysis
+}
+\author{%
+  % TODO: author name(s), affiliation(s), corresponding-author email
+  Your Name$^{1}$ \\
+  \small $^{1}$Your Institution / Department
+}
+\date{\today}
+
+% =============================================================================
+\begin{document}
+
+\maketitle
+
+% --------------------------------------------------------------- ABSTRACT --
+\begin{abstract}
+% TODO: finalize last, after Results/Discussion are complete. Draft below
+% follows a standard Background/Methods/Results/Conclusion structure.
+\noindent\textbf{Background:} Alzheimer's disease (AD) and Parkinson's
+disease (PD) have both been linked to impaired brain (central) insulin
+signaling. Glucagon-like peptide-1 receptor agonists (GLP-1RAs) cross the
+blood--brain barrier and show neuroprotective effects in preclinical and
+some clinical studies, with central insulin resistance proposed as the
+mediating mechanism. \textbf{Methods:} We conducted a structured literature
+synthesis (PubMed/PMC/clinical trial registries, $n=21$ primary sources)
+evaluating three candidate hypotheses regarding the role of central insulin
+resistance, supplemented by an original differential-expression re-analysis
+of a public transcriptomic dataset (GEO accession GSE34451) and a
+formal causal mediation-analysis framework. \textbf{Results:} [TODO:
+summarize headline literature finding, e.g., proportion of studies
+supporting vs.\ contradicting a simple mediation chain] [TODO: summarize
+GSE34451 finding, e.g., number of insulin-signaling genes nominally
+altered]. \textbf{Conclusions:} [TODO -- 1--2 sentences once Discussion is
+finalized].
+
+\vspace{0.5em}
+\noindent\textbf{Keywords:} GLP-1 receptor agonists; insulin resistance;
+Alzheimer's disease; Parkinson's disease; neuroprotection; mediation analysis
+\end{abstract}
+
+% =============================================================================
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{Background}
+Alzheimer's disease (AD) and Parkinson's disease (PD) have both been linked
+to impaired brain (central) insulin signaling -- sometimes termed
+``type 3 diabetes'' in the AD literature -- contributing to
+neuroinflammation, mitochondrial dysfunction, pathological protein
+aggregation (amyloid-$\beta$, tau, $\alpha$-synuclein), and synaptic loss
+\citep{talbot2014}. GLP-1 receptors are expressed throughout the central
+nervous system, including the hippocampus, substantia nigra, and cortex.
+GLP-1 receptor agonists (GLP-1RAs; e.g., exenatide, liraglutide,
+semaglutide) cross or signal across the blood--brain barrier and have
+demonstrated neuroprotective effects in preclinical AD/PD models and in
+some clinical trials \citep{hong2024}.
+
+The proposed mechanistic pathway is that GLP-1RAs restore central insulin
+sensitivity/signaling (PI3K--Akt pathway, GSK-3$\beta$ inhibition, reduced
+neuroinflammation), producing a downstream reduction in pathological protein
+aggregation and neuronal loss, and ultimately clinical neuroprotection
+(cognitive or motor outcomes). This report evaluates the evidence base for
+central insulin resistance as the mediating mechanism, as opposed to GLP-1RA
+effects on neuroprotection occurring independently of insulin signaling
+(e.g., via direct anti-inflammatory, anti-apoptotic, or mitochondrial
+effects).
+
+\subsection{Research question}
+What evidence supports central insulin resistance as a mediator of GLP-1
+receptor agonist neuroprotection in Alzheimer's and Parkinson's disease?
+
+\subsection{Working hypotheses}
+Three candidate hypotheses were formulated and evaluated against the
+evidence synthesized in this report (Table~\ref{tab:hypotheses}).
+
+\begin{table}[h]
+\centering
+\caption{Working hypotheses evaluated in this report.}
+\label{tab:hypotheses}
+\begin{tabular}{@{}p{0.06\textwidth}p{0.45\textwidth}p{0.4\textwidth}@{}}
+\toprule
+\textbf{ID} & \textbf{Hypothesis} & \textbf{Summary assessment} \\
+\midrule
+H1 & GLP-1RAs exert neuroprotective effects \emph{primarily} through
+restoration of PI3K--Akt signaling impaired by central insulin resistance. &
+Contradicted by decoupling evidence; overclaims a single dominant mechanism. \\[4pt]
+H2 & Metabolic dysfunction (diabetes/obesity/insulin resistance) identifies
+a responder subgroup for GLP-1 therapy in neurodegenerative disease. &
+Weakest support; the one direct empirical test found no such association,
+and most trials structurally exclude the relevant population. \\[4pt]
+H3 & Brain insulin resistance represents a shared pathological mechanism
+linking AD and PD and contributes to (not necessarily primarily explains)
+the therapeutic effects of GLP-1RAs. & Best-supported framing; appropriately
+scoped, not directly contradicted by available evidence, but not yet
+confirmed via formal mediation testing. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% =============================================================================
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Literature search and structured extraction}
+% TODO: state exact databases, date range, and search terms used.
+Literature was identified via PubMed, PubMed Central, and clinical trial
+registries (ClinicalTrials.gov). Search results were supplemented by queries
+of the Gene Expression Omnibus (GEO), KEGG pathway database, DrugBank,
+OpenAlex, and the Cochrane Library. Eligible study types included randomized
+controlled trials, observational/real-world cohort studies, preclinical
+(animal/cell) mechanistic studies, and systematic reviews/meta-analyses
+reporting either a central insulin-resistance/signaling marker, a
+GLP-1RA-related intervention, and/or a neurodegenerative outcome in AD or
+PD. For each included source, the following were extracted into a
+structured schema: disease studied, GLP-1 agonist used, evidence of insulin
+resistance, insulin-signaling markers measured, neurodegenerative outcomes,
+whether formal mediation was tested, and main conclusions ($n = 21$ primary
+sources; full extraction available in supplementary data).
+
+\subsection{Original transcriptomic re-analysis}
+To complement the literature synthesis with original primary-data evidence
+on the insulin-resistance side of the hypothesis, we re-analyzed a public
+gene-expression dataset, GEO accession GSE34451 (Agilent rat whole-genome
+microarray, platform GPL15011), comprising hippocampus, prefrontal cortex,
+and striatum samples from control (Wistar), type 1 diabetic
+(streptozotocin-treated), and type 2 diabetic (Goto-Kakizaki) rats
+($n=3$ per group per region). We focused on the hippocampus, Control vs.\
+type 2 diabetes (T2D) contrast as most directly relevant to the
+insulin-resistance-in-AD hypothesis.
+
+Microarray probe identifiers were mapped to gene symbols using the GPL15011
+platform annotation table, with multi-probe genes collapsed by averaging.
+Differential expression between groups was assessed via Welch's $t$-test
+with Benjamini--Hochberg false discovery rate (FDR) correction. Genes were
+cross-referenced against the KEGG insulin signaling pathway gene set
+(map04910/rno04910) to identify insulin-pathway-specific differential
+expression. % TODO: cite your own analysis script/repository here, e.g.:
+% \citep{yourrepo2026} or a footnote with the GitHub URL.
+
+\subsection{Causal mediation-analysis framework}
+No identified study in the literature search performed a formal statistical
+test of mediation (treatment $\rightarrow$ insulin-resistance marker
+$\rightarrow$ neurodegenerative outcome). We therefore implemented a
+Baron--Kenny path-model mediation framework with nonparametric
+(case-resampling) bootstrap confidence intervals for the indirect effect,
+designed to be applied to individual-patient data the moment such a dataset
+becomes available. In the absence of such data, we (a) constructed a
+calibrated illustrative simulation using the one available set of real
+aggregate statistics in this literature (exenatide-PD trial motor and
+biomarker effect sizes), explicitly flagging which parameters were real vs.\
+assumed, and (b) conducted a power/feasibility analysis estimating whether
+trials of the sample sizes actually used in this literature were capable of
+detecting mediation of a plausible effect size.
+
+% =============================================================================
+\section{Results}
+\label{sec:results}
+
+\subsection{Evidence synthesis from the literature}
+% TODO: populate with your finalized counts/qualitative summary, e.g.:
+% "Of the 21 sources reviewed, X reported [...]; Y reported contradicting
+% evidence (Table 2); no source performed formal mediation testing."
+[TODO: narrative summary of literature_extraction.json synthesis\_summary]
+
+\begin{table}[h]
+\centering
+\caption{Summary of evidence type and direction across reviewed sources.
+% TODO: replace placeholder counts with final tallies.
+}
+\label{tab:evidence-summary}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Evidence category} & \textbf{Supporting} & \textbf{Contradicting/null} \\
+\midrule
+Mechanistic convergence (PI3K/Akt, GSK-3$\beta$ overlap) & X & -- \\
+Preclinical marker--phenotype co-movement & X & X \\
+Clinical biomarker evidence (human, in vivo) & 1 & -- \\
+Primary clinical trial endpoints & X & X \\
+Pooled meta-analytic evidence & -- & X \\
+Metabolic-subgroup (responder) analyses & -- & X \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Contradicting and decoupling evidence}
+% TODO: pull from extraction/contradicting_evidence.json -- summarize the
+% 7 contradiction types and the 1-2 strongest examples in prose.
+[TODO: narrative summary]
+
+\subsection{Metabolic-subgroup analysis}
+% TODO: pull from extraction/metabolic_subgroup_extraction.json
+[TODO: narrative summary -- note most trials excluded diabetics by design,
+and the one trial with a real diabetic subgroup did not publish a
+stratified result.]
+
+\subsection{Original transcriptomic analysis (GSE34451)}
+
+\begin{figure}[h]
+\centering
+\FigurePlaceholder{6cm}{[PLACEHOLDER -- insert \texttt{figures/geo\_volcano\_plot.png}]\\
+Volcano plot: differential expression, Hippocampus, Control vs.\ T2D (GSE34451)}
+\caption{Volcano plot of genome-wide differential expression between control
+and type 2 diabetic (Goto-Kakizaki) rat hippocampus. Insulin-signaling
+pathway genes (KEGG rno04910) highlighted. $n=3$ per group.}
+\label{fig:volcano}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\FigurePlaceholder{6cm}{[PLACEHOLDER -- insert \texttt{figures/geo\_insulin\_genes\_heatmap.png}]\\
+Heatmap: top insulin-signaling genes by raw $p$-value}
+\caption{Expression heatmap of the top 20 insulin-signaling-pathway genes
+ranked by raw (uncorrected) $p$-value, mean-centered per gene.}
+\label{fig:heatmap}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.48\textwidth}
+  \FigurePlaceholder{5cm}{[PLACEHOLDER --\\ \texttt{geo\_top\_insulin\_genes\_boxplots.png}]}
+  \caption{Top individual gene boxplots}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+  \FigurePlaceholder{5cm}{[PLACEHOLDER --\\ \texttt{geo\_pca\_plot.png}]}
+  \caption{PCA of hippocampus samples}
+\end{subfigure}
+\caption{(a) Expression distributions for the most nominally significant
+insulin-signaling genes by group. (b) Principal component analysis of
+hippocampus samples, colored by group.}
+\label{fig:boxplots-pca}
+\end{figure}
+
+% TODO: report exact figures from your generate_all_figures.py / summary.txt
+% output, e.g.: "Of 125 insulin-signaling pathway genes annotated in this
+% dataset, X reached nominal significance (raw p<0.05); none survived FDR
+% correction at this sample size (n=3/group)."
+[TODO: narrative results paragraph with exact gene names/statistics, e.g.
+\textit{Insr} (log$_2$FC = +0.76, raw $p$ = 0.0067), \textit{Gys2}, \textit{Mapk8}.]
+
+\subsection{Mediation feasibility and power analysis}
+
+\begin{figure}[h]
+\centering
+\FigurePlaceholder{6cm}{[PLACEHOLDER -- insert \texttt{figures/mediation\_illustration\_athauda2019\_illustration\_path\_diagram.png}]\\
+Illustrative mediation path diagram (calibrated, not real evidence)}
+\caption{Illustrative mediation path model calibrated to the aggregate
+statistics reported in the Exenatide-PD trial and its exosome sub-study.
+Path~$a$ and the total effect are real published aggregate statistics; path
+$b$ is an assumed illustrative value (see Methods). This figure does
+\emph{not} represent a real mediation finding.}
+\label{fig:mediation-illustration}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\FigurePlaceholder{6cm}{[PLACEHOLDER -- insert \texttt{figures/mediation\_power\_power\_curve.png}]\\
+Power curve: detectability of mediation vs. sample size}
+\caption{Empirical statistical power to detect a hypothetical mediation
+effect (indirect-effect bootstrap confidence interval excluding zero) as a
+function of trial sample size, evaluated at the sample sizes of trials
+actually conducted in this literature ($n=62$, $204$, $3{,}808$, etc.).}
+\label{fig:power-curve}
+\end{figure}
+
+% TODO: report exact power values from output/power/power_analysis.csv
+[TODO: narrative summary, e.g. "At the assumed effect size, the Exenatide-PD
+trial (n=62) had an estimated power of X\% to detect mediation, compared to
+Y\% for evoke/evoke+ (n=3,808)."]
+
+% =============================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Which hypothesis is best supported}
+% TODO: expand using research_question.md's hypothesis ranking rationale.
+Of the three candidate hypotheses, H3 -- that central insulin resistance is
+a shared, contributory (rather than primary or subgroup-defining) mechanism
+linking AD and PD to GLP-1RA effects -- is the framing best supported by, and
+least contradicted by, the available evidence. [TODO: expand with specific
+citations to contradicting and supporting evidence from
+Sections~\ref{sec:results}.]
+
+\subsection{Mechanistic plausibility versus clinical translation}
+% TODO
+[TODO: discuss the gap between preclinical mechanistic convergence and
+inconsistent/null clinical trial results.]
+
+\subsection{The unanswered metabolic-subgroup question}
+% TODO
+[TODO: discuss why most trials cannot test H2, and what data would be
+needed to test it properly.]
+
+\subsection{Interpretation of the original transcriptomic finding}
+% TODO
+[TODO: discuss the GSE34451 finding's biological plausibility
+(e.g., compensatory \textit{Insr} upregulation) against its statistical
+limitations (n=3/group, no FDR significance, no GLP-1RA arm in this dataset).]
+
+% =============================================================================
+\section{Limitations}
+\label{sec:limitations}
+
+\begin{itemize}[leftmargin=*]
+  \item No identified study -- across 21 primary sources spanning randomized
+  trials, preclinical mechanistic studies, meta-analyses, and a Cochrane
+  review -- performed a formal statistical mediation analysis linking
+  GLP-1RA treatment, a central insulin-resistance marker, and a
+  neurodegenerative outcome in the same subjects.
+  \item No public dataset (literature- or GEO-derived) links GLP-1RA
+  treatment, a central insulin-resistance marker, and a neurodegenerative
+  outcome in the same subjects; the original transcriptomic analysis in this
+  report addresses only the insulin-resistance side of the hypothesis.
+  \item Most randomized trials identified excluded diabetic participants by
+  design, structurally preventing direct tests of the metabolic-subgroup
+  hypothesis (H2).
+  \item The original transcriptomic analysis (GSE34451) used $n=3$ per
+  group per brain region, limiting statistical power; findings should be
+  treated as exploratory/hypothesis-generating.
+  \item KEGG's curated reference pathways for AD and PD do not currently
+  integrate insulin-signaling components, indicating this mechanism is not
+  yet reflected in canonical pathway curation.
+  % TODO: add any further limitations specific to your final figures/results.
+\end{itemize}
+
+% =============================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% TODO: 2-4 sentences, finalized last.
+[TODO: state plainly (1) that formal mediation evidence does not yet exist,
+(2) that H3 is the best-supported framing without being confirmed, and (3)
+what would be needed to close the evidence gap (e.g., a dataset or
+sub-study measuring GLP-1RA exposure, a central insulin-resistance marker,
+and a neurodegenerative outcome in the same subjects).]
+
+% =============================================================================
+\section*{Acknowledgments}
+% TODO
+
+\section*{Data and code availability}
+% TODO: insert your GitHub repository URL.
+All extraction files, analysis code, and figure-generation scripts are
+available at: \url{https://github.com/Swdvvv/Insulin-resistance-as-a-mediator-of-GLP-1-agonist-}
+
+% =============================================================================
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+
+\bibitem{athauda2017} Athauda D, Maclagan K, Skene SS, et al. Exenatide once
+weekly versus placebo in Parkinson's disease: a randomised, double-blind,
+placebo-controlled trial. \textit{Lancet}. 2017;390(10103):1664--1675.
+
+\bibitem{athauda2019} Athauda D, Gulyani S, Karnati HK, et al. Utility of
+Neuronal-Derived Exosomes to Examine Molecular Mechanisms That Affect Motor
+Function in Patients With Parkinson Disease: A Secondary Analysis of the
+Exenatide-PD Trial. \textit{JAMA Neurol}. 2019;76(4):420--429.
+
+\bibitem{avilesolmos2013} Aviles-Olmos I, Dickson J, Kefalopoulou Z, et al.
+Exenatide and the treatment of patients with Parkinson's disease.
+\textit{J Clin Invest}. 2013;123(6):2730--2736.
+
+\bibitem{meissner2024} Meissner WG, Remy P, Giordana C, et al. Trial of
+Lixisenatide in Early Parkinson's Disease. \textit{N Engl J Med}.
+2024;390(13):1176--1185.
+
+\bibitem{gejl2016} Gejl M, Gjedde A, Egefjord L, et al. In Alzheimer's
+Disease, 6-Month Treatment with GLP-1 Analog Prevents Decline of Brain
+Glucose Metabolism: Randomized, Placebo-Controlled, Double-Blind Clinical
+Trial. \textit{Front Aging Neurosci}. 2016;8:108.
+
+\bibitem{edison2025} Edison P, Femminella GD, Ritchie C, et al. Liraglutide
+in mild to moderate Alzheimer's disease: a phase 2b clinical trial.
+\textit{Nat Med}. 2025;32(1):353--361.
+
+\bibitem{cummings2026} Cummings JL, Atri A, Sano M, et al. Efficacy and
+safety of oral semaglutide 14~mg (flexible dose) in early-stage symptomatic
+Alzheimer's disease (evoke and evoke+): two phase 3, randomised,
+placebo-controlled trials. \textit{Lancet}. 2026;407(10544):2167--2179.
+
+\bibitem{hansen2015} Hansen HH, et al. The GLP-1 Receptor Agonist
+Liraglutide Improves Memory Function and Increases Hippocampal CA1
+Neuronal Numbers in a Senescence-Accelerated Mouse Model of Alzheimer's
+Disease. \textit{J Alzheimers Dis}. 2015;46(4):877--888.
+
+\bibitem{batista2018} Batista AF, Forny-Germano L, Clarke JR, et al. The
+diabetes drug liraglutide reverses cognitive impairment in mice and
+attenuates insulin receptor and synaptic pathology in a non-human primate
+model of Alzheimer's disease. \textit{J Pathol}. 2018;245(1):85--100.
+
+\bibitem{paladugu2021} Paladugu L, Gharaibeh A, Kolli N, et al. Liraglutide
+Has Anti-Inflammatory and Anti-Amyloid Properties in Streptozotocin-Induced
+and 5xFAD Mouse Models of Alzheimer's Disease. \textit{Int J Mol Sci}.
+2021;22(2):860.
+
+\bibitem{mcclean2014} McClean PL, H\"olscher C. Liraglutide can reverse
+memory impairment, synaptic loss and reduce plaque load in aged APP/PS1
+mice, a model of Alzheimer's disease. \textit{Neuropharmacology}.
+2014;76(Pt A):57--67.
+
+\bibitem{carranza2021} Carranza-Naval MJ, del Marco A, Hierro-Bujalance C,
+et al. Liraglutide reduces vascular damage, neuronal loss, and cognitive
+impairment in a mixed murine model of Alzheimer's disease and type 2
+diabetes. \textit{Front Aging Neurosci}. 2021;13:741923.
+
+\bibitem{zhang2023} Zhang Z, et al. A Dual GLP-1/GIP Receptor Agonist Is
+More Effective than Liraglutide in the A53T Mouse Model of Parkinson's
+Disease. \textit{Parkinsons Dis}. 2023;2023:7427136.
+
+\bibitem{zhang2022} Zhang L, et al. DA5-CH and Semaglutide Protect against
+Neurodegeneration and Reduce $\alpha$-Synuclein Levels in the 6-OHDA
+Parkinson's Disease Rat Model. \textit{Parkinsons Dis}. 2022;2022:1428817.
+
+\bibitem{talbot2014} Talbot K. Brain insulin resistance in Alzheimer's
+disease and its potential treatment with GLP-1 analogs. \textit{Neurodegener
+Dis Manag}. 2014;4(1):31--40.
+
+\bibitem{kong2023} Kong F, et al. Glucagon-like peptide 1 (GLP-1) receptor
+agonists in experimental Alzheimer's disease models: a systematic review and
+meta-analysis of preclinical studies. \textit{Front Pharmacol}.
+2023;14:1205207.
+
+\bibitem{hong2024} Hong CT, Chen JH, Hu CJ. Role of glucagon-like
+peptide-1 receptor agonists in Alzheimer's disease and Parkinson's disease.
+\textit{J Biomed Sci}. 2024;31:102.
+
+\bibitem{helal2025} Helal MM, AbouShawareb H, Abbas OH, et al. GLP-1
+receptor agonists in Parkinson's disease: an updated comprehensive
+systematic review with meta-analysis. \textit{Diabetol Metab Syndr}.
+2025;17:352.
+
+\bibitem{mulvaney2020} Mulvaney CA, Duarte GS, Handley J, et al. GLP-1
+receptor agonists for Parkinson's disease. \textit{Cochrane Database Syst
+Rev}. 2020;7(7):CD012990.
+
+\bibitem{santos2026} Santos P, S\'a Filho AS, Aprigliano V, et al.
+Liraglutide and Exenatide in Alzheimer's Disease and Mild Cognitive
+Impairment: A Systematic Review and Meta-Analysis of Cognitive Outcomes.
+\textit{Pharmaceutics}. 2026;18(1):69.
+
+\bibitem{abualrob2025} AbuAlrob MA, Itbaisha A, Abujwaid YK, et al.
+Exploring the neuroprotective role of GLP-1 agonists against Alzheimer's
+disease: Real-world evidence from a propensity-matched cohort. \textit{J
+Alzheimers Dis Rep}. 2025;9:25424823251388650.
+
+\bibitem{wang2025} Wang W, Davis PB, Qi X, et al. Associations of
+semaglutide with Alzheimer's disease-related dementias in patients with
+type 2 diabetes: A real-world target trial emulation study. \textit{J
+Alzheimers Dis}. 2025;106(4):1509--1522.
+
+\end{thebibliography}
+
+\end{document}
