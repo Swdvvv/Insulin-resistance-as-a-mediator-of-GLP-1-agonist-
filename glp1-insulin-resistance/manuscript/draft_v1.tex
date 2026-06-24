@@ -69,12 +69,32 @@ synthesis (PubMed/PMC/clinical trial registries, $n=21$ primary sources)
 evaluating three candidate hypotheses regarding the role of central insulin
 resistance, supplemented by an original differential-expression re-analysis
 of a public transcriptomic dataset (GEO accession GSE34451) and a
-formal causal mediation-analysis framework. \textbf{Results:} [TODO:
-summarize headline literature finding, e.g., proportion of studies
-supporting vs.\ contradicting a simple mediation chain] [TODO: summarize
-GSE34451 finding, e.g., number of insulin-signaling genes nominally
-altered]. \textbf{Conclusions:} [TODO -- 1--2 sentences once Discussion is
-finalized].
+formal causal mediation-analysis framework. \textbf{Results:} No identified
+source, clinical or preclinical, performed a formal statistical mediation
+test linking GLP-1RA exposure, a central insulin-resistance marker, and a
+neurodegenerative outcome in the same subjects. Mechanistic convergence on
+shared insulin-signaling pathways was common across preclinical studies and
+reviews (10/21 sources), but insulin-pathway engagement and neuroprotective
+phenotype frequently dissociated within individual studies, clinical trial
+endpoints were directionally inconsistent between diseases (positive on
+primary motor endpoints in 3/3 Parkinson's disease RCTs vs.\ null or mixed
+on primary endpoints in the three Alzheimer's disease RCTs reviewed), and
+the one direct empirical test of whether metabolic/insulin-resistance status
+predicts treatment response (Athauda et al.\ 2019 post-hoc analysis) found
+no such association. An original re-analysis of GSE34451 (rat hippocampus,
+Control vs.\ type 2 diabetic, $n=3$/group) found that of 125 KEGG
+insulin-signaling pathway genes, none survived FDR correction, but five
+reached nominal significance (raw $p<0.05$) with mixed direction of effect:
+\textit{Mapk8} (JNK1) upregulation in the diabetic group is consistent with
+the canonical JNK-mediated insulin-resistance mechanism, whereas
+\textit{Insr} and \textit{Gys2} upregulation runs counter to the simplest
+version of the hypothesis. \textbf{Conclusions:} Central insulin resistance
+is a biologically plausible contributory mechanism in both diseases (rather
+than the dominant or subgroup-defining mechanism), but formal mediation
+evidence does not yet exist in the literature; closing this gap requires a
+dataset or sub-study that measures GLP-1RA exposure, a central
+insulin-resistance marker, and a neurodegenerative outcome in the same
+subjects.
 
 \vspace{0.5em}
 \noindent\textbf{Keywords:} GLP-1 receptor agonists; insulin resistance;
@@ -200,145 +220,350 @@ detecting mediation of a plausible effect size.
 \label{sec:results}
 
 \subsection{Evidence synthesis from the literature}
-% TODO: populate with your finalized counts/qualitative summary, e.g.:
-% "Of the 21 sources reviewed, X reported [...]; Y reported contradicting
-% evidence (Table 2); no source performed formal mediation testing."
-[TODO: narrative summary of literature_extraction.json synthesis\_summary]
+Across the 21 primary sources reviewed (7 randomized controlled trials, 7
+preclinical animal studies, 4 systematic reviews/meta-analyses including one
+Cochrane review, 1 narrative-review-only mechanistic source, and 2
+real-world observational cohorts), no source -- clinical or preclinical --
+performed a formal statistical mediation analysis (e.g., bootstrapped
+indirect-effect testing) of central insulin resistance as a mediator of
+GLP-1RA neuroprotective outcomes. Evidence for the mediation hypothesis is
+currently mechanistic and correlational rather than causally established.
+Mechanistic convergence on shared insulin-signaling components (PI3K/Akt,
+GSK-3$\beta$, IRS-1 phosphorylation) was discussed in roughly half of
+sources (10/21), concentrated in preclinical studies and narrative reviews.
+The clearest direct biomarker evidence in a living human cohort is
+\citet{athauda2019}, a secondary exosome-based analysis of the Exenatide-PD
+trial reporting increased tyrosine-phosphorylated IRS-1, total Akt, and
+phosphorylated mTOR with exenatide, temporally associated with motor
+improvement -- but without formal mediation testing. Clinical trial primary
+endpoints were directionally inconsistent by disease: all three Parkinson's
+disease RCTs identified (exenatide \citep{avilesolmos2013,athauda2017} and
+lixisenatide \citep{meissner2024}) were positive on the primary motor
+endpoint, whereas the three Alzheimer's disease RCTs reviewed
+(\citet{gejl2016}, \citet{edison2025}/ELAD, \citet{cummings2026}/evoke and
+evoke+) were null or mixed on their primary endpoints. Pooled
+meta-analytic clinical evidence was null or low-certainty in both diseases
+(\citet{santos2026}: SMD $-0.21$, ns, for AD/MCI cognitive outcomes;
+\citet{helal2025}: only 1 of 6 pooled PD outcomes significant;
+\citet{mulvaney2020}, Cochrane: GRADE certainty low-to-very-low).
 
 \begin{table}[h]
 \centering
-\caption{Summary of evidence type and direction across reviewed sources.
-% TODO: replace placeholder counts with final tallies.
-}
+\caption{Approximate tally of evidence type and direction across the 21
+reviewed sources. Categories are not mutually exclusive -- a single source
+may contribute to more than one row.}
 \label{tab:evidence-summary}
 \begin{tabular}{@{}lcc@{}}
 \toprule
 \textbf{Evidence category} & \textbf{Supporting} & \textbf{Contradicting/null} \\
 \midrule
-Mechanistic convergence (PI3K/Akt, GSK-3$\beta$ overlap) & X & -- \\
-Preclinical marker--phenotype co-movement & X & X \\
+Mechanistic convergence (PI3K/Akt, GSK-3$\beta$ overlap) & 10 & -- \\
+Preclinical marker--phenotype co-movement & 2 & 2 \\
 Clinical biomarker evidence (human, in vivo) & 1 & -- \\
-Primary clinical trial endpoints & X & X \\
-Pooled meta-analytic evidence & -- & X \\
-Metabolic-subgroup (responder) analyses & -- & X \\
+Primary clinical trial endpoints (PD positive / AD null-mixed) & 3 & 3 \\
+Pooled meta-analytic clinical evidence & -- & 3 \\
+Metabolic-subgroup (responder) analyses & -- & 1 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Contradicting and decoupling evidence}
-% TODO: pull from extraction/contradicting_evidence.json -- summarize the
-% 7 contradiction types and the 1-2 strongest examples in prose.
-[TODO: narrative summary]
+Seven distinct ways in which the available evidence complicates or
+contradicts a simple mediation chain were identified (full detail in
+\texttt{extraction/contradicting\_evidence.json}). The single cleanest
+within-study dissociation is \citet{carranza2021}: liraglutide produced the
+full expected neuroprotective phenotype (reduced cortical atrophy, amyloid
+burden, tau hyperphosphorylation, microglial activation, and improved
+cognition) in a mixed AD/T2D mouse model, yet cortical IR-A, IR-B, and
+IGF-1R mRNA expression showed \emph{no difference} between groups -- the
+proposed mediator did not move even though the proposed downstream effect
+did. \citet{paladugu2021} showed the converse partial dissociation: liraglutide
+restored IDE and phosphorylated GSK-3$\beta$ but explicitly did not elevate
+phosphorylated Akt, and neither degenerating-neuron counts nor behavioral
+measures changed. At the clinical level, the trials with the most literal
+central-insulin/glucose-metabolism endpoint (cerebral glucose metabolism via
+PET) were null on that specific endpoint in both \citet{gejl2016} and
+\citet{edison2025} even as other benefits (ADAS-Exec, brain volume) appeared
+through a different readout, and the largest, most metabolically diverse AD
+trial (\citet{cummings2026}, evoke/evoke+, $n=3{,}808$) was completely null
+on its primary endpoint. The most direct empirical test of patient-level
+prediction, the \citet{athauda2019} post-hoc analysis of the Exenatide-PD
+cohort, examined BMI and insulin resistance as candidate predictors of motor
+response and found neither significant; tremor-dominant phenotype and
+milder baseline disease predicted benefit instead.
 
 \subsection{Metabolic-subgroup analysis}
-% TODO: pull from extraction/metabolic_subgroup_extraction.json
-[TODO: narrative summary -- note most trials excluded diabetics by design,
-and the one trial with a real diabetic subgroup did not publish a
-stratified result.]
+Five of the seven RCTs identified (\citet{athauda2017}, Aviles-Olmos 2013,
+\citet{gejl2016}, \citet{edison2025}, and very likely \citet{meissner2024})
+explicitly excluded diabetic participants at enrollment, specifically to
+isolate a CNS drug effect from peripheral glycemic confounding -- which
+means most of this evidence base structurally cannot test whether
+metabolically impaired patients benefit more, because that subgroup was
+screened out before randomization. Only \citet{cummings2026} (evoke and
+evoke+) enrolled a non-trivial diabetic subgroup (13.6\% overall, $n
+\approx 516$), but its primary outcome was null overall and no
+diabetes-stratified subgroup analysis has been published in any accessible
+source. The one direct test of metabolic status as a predictor of GLP-1RA
+response (\citet{athauda2019} post-hoc analysis) found that BMI and insulin
+resistance were not significant predictors of motor benefit in PD. The
+largest dataset with substantial metabolically-impaired representation
+(AbuAlrob et al.\ 2025, real-world cohort, $n=295{,}010$, $\sim$51\%
+diabetic in the treated arm) had the statistical power to test this
+directly but did not perform the stratified analysis, citing incomplete EHR
+coding of diabetes/agent/dose details. The honest state of the evidence is
+therefore an evidence gap, not a documented null or positive subgroup
+effect: trial designs have systematically avoided enrolling the population
+whose response would test the metabolic-subgroup hypothesis (H2) most
+directly.
 
 \subsection{Original transcriptomic analysis (GSE34451)}
 
 \begin{figure}[h]
 \centering
-\FigurePlaceholder{6cm}{[PLACEHOLDER -- insert \texttt{figures/geo\_volcano\_plot.png}]\\
-Volcano plot: differential expression, Hippocampus, Control vs.\ T2D (GSE34451)}
+\includegraphics[width=0.92\textwidth]{Differential expression.png}
 \caption{Volcano plot of genome-wide differential expression between control
-and type 2 diabetic (Goto-Kakizaki) rat hippocampus. Insulin-signaling
-pathway genes (KEGG rno04910) highlighted. $n=3$ per group.}
+and type 2 diabetic (Goto-Kakizaki) rat hippocampus (GSE34451). KEGG
+insulin-signaling pathway genes (rno04910, $n=125$ annotated in this
+dataset) highlighted in red; none reach the FDR-significance line at this
+sample size. $n=3$ per group.}
 \label{fig:volcano}
 \end{figure}
 
 \begin{figure}[h]
 \centering
-\FigurePlaceholder{6cm}{[PLACEHOLDER -- insert \texttt{figures/geo\_insulin\_genes\_heatmap.png}]\\
-Heatmap: top insulin-signaling genes by raw $p$-value}
-\caption{Expression heatmap of the top 20 insulin-signaling-pathway genes
-ranked by raw (uncorrected) $p$-value, mean-centered per gene.}
+\includegraphics[width=0.92\textwidth]{Top 20 insulin signalling.png}
+\caption{Per-replicate expression heatmap of the top 20 insulin-signaling
+pathway genes ranked by raw (uncorrected) $p$-value, mean-centered per gene.
+Note the substantial within-group heterogeneity across replicates (e.g.\
+T2D replicates disagree in direction for several genes), consistent with
+the small per-group sample size.}
 \label{fig:heatmap}
 \end{figure}
 
 \begin{figure}[h]
 \centering
+\includegraphics[width=0.92\textwidth]{Box plots.png}
+\caption{Expression distributions for the six most nominally significant
+insulin-signaling-pathway genes (raw $p<0.06$) by group: \textit{Insr},
+\textit{Pde3b}, \textit{Gys2}, \textit{Prkab2}, \textit{Mapk8},
+\textit{Ppargc1a}.}
+\label{fig:boxplots}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{PCA.png}
+\caption{Principal component analysis of hippocampus samples, colored by
+group. PC1 (42.2\% of variance) shows a partial trend separating Control
+from T2D samples, with some overlap, consistent with a modest but
+incomplete global transcriptomic difference at this sample size.}
+\label{fig:pca}
+\end{figure}
+
+\begin{figure}[h]
+\centering
 \begin{subfigure}{0.48\textwidth}
-  \FigurePlaceholder{5cm}{[PLACEHOLDER --\\ \texttt{geo\_top\_insulin\_genes\_boxplots.png}]}
-  \caption{Top individual gene boxplots}
+  \includegraphics[width=\textwidth]{p-value distribution.png}
+  \caption{Genome-wide raw $p$-value distribution}
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.48\textwidth}
-  \FigurePlaceholder{5cm}{[PLACEHOLDER --\\ \texttt{geo\_pca\_plot.png}]}
-  \caption{PCA of hippocampus samples}
+  \includegraphics[width=\textwidth]{Sample correlation.png}
+  \caption{Sample--sample correlation matrix}
 \end{subfigure}
-\caption{(a) Expression distributions for the most nominally significant
-insulin-signaling genes by group. (b) Principal component analysis of
-hippocampus samples, colored by group.}
-\label{fig:boxplots-pca}
+\caption{(a) The raw $p$-value histogram shows a modest excess of small
+$p$-values above what a uniform null distribution would predict, indicating
+weak but non-zero genome-wide signal that is underpowered for FDR
+significance at $n=3$/group. (b) Sample-sample Pearson correlations are
+uniformly high (0.99--1.00) with no sharp block structure separating
+Control from T2D, typical of normalized microarray data and consistent with
+the modest global separation seen in the PCA.}
+\label{fig:pval-corr}
 \end{figure}
 
-% TODO: report exact figures from your generate_all_figures.py / summary.txt
-% output, e.g.: "Of 125 insulin-signaling pathway genes annotated in this
-% dataset, X reached nominal significance (raw p<0.05); none survived FDR
-% correction at this sample size (n=3/group)."
-[TODO: narrative results paragraph with exact gene names/statistics, e.g.
-\textit{Insr} (log$_2$FC = +0.76, raw $p$ = 0.0067), \textit{Gys2}, \textit{Mapk8}.]
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.92\textwidth]{Forest plots.png}
+\caption{Effect sizes (log$_2$ fold change, T2D vs.\ Control) with
+confidence intervals across the annotated insulin-signaling gene panel,
+ranked by raw $p$-value; orange bars indicate raw $p<0.05$.}
+\label{fig:forest}
+\end{figure}
+
+Of 125 KEGG insulin-signaling pathway genes (rno04910) annotated in this
+dataset, none survived Benjamini--Hochberg FDR correction, but five reached
+nominal significance (raw $p<0.05$): \textit{Insr} (log$_2$FC $=+0.76$,
+raw $p=0.0067$, the single most significant hit in the entire dataset),
+\textit{Pde3b} (log$_2$FC $\approx -1.3$, raw $p=0.0141$), \textit{Gys2}
+(log$_2$FC $\approx +0.37$, raw $p=0.0275$), \textit{Prkab2} (log$_2$FC
+$\approx -0.95$, raw $p=0.0299$), and \textit{Mapk8}/JNK1 (log$_2$FC
+$\approx +0.36$, raw $p=0.0493$); \textit{Ppargc1a} narrowly missed
+significance (raw $p=0.0536$). Direction of effect was mixed relative to
+the canonical insulin-resistance model: \textit{Mapk8} upregulation in the
+diabetic group is consistent with JNK-mediated inhibitory serine
+phosphorylation of IRS-1, a well-established driver of insulin resistance,
+and \textit{Pde3b}/\textit{Prkab2} downregulation is consistent with
+reduced downstream Akt/AMPK pathway output. By contrast, \textit{Insr} and
+\textit{Gys2} were both \emph{upregulated} in the diabetic group, which is
+not the naively expected direction (receptor and glycogen-synthase
+transcripts are often assumed to decrease alongside impaired insulin
+action). \textit{Insr} upregulation has a plausible compensatory
+explanation -- receptor transcript upregulation as homeostatic feedback when
+downstream signaling efficiency drops -- but this was not directly tested
+in the present dataset.
 
 \subsection{Mediation feasibility and power analysis}
 
 \begin{figure}[h]
 \centering
-\FigurePlaceholder{6cm}{[PLACEHOLDER -- insert \texttt{figures/mediation\_illustration\_athauda2019\_illustration\_path\_diagram.png}]\\
-Illustrative mediation path diagram (calibrated, not real evidence)}
+\includegraphics[width=0.92\textwidth]{illustrative.png}
 \caption{Illustrative mediation path model calibrated to the aggregate
 statistics reported in the Exenatide-PD trial and its exosome sub-study.
-Path~$a$ and the total effect are real published aggregate statistics; path
-$b$ is an assumed illustrative value (see Methods). This figure does
-\emph{not} represent a real mediation finding.}
+Path~$a$ (IRS-1 phosphorylation change, $+0.279$, $p=0.000106$) and the
+total/direct effect ($c' = +5.15$ MDS-UPDRS III points) are real published
+aggregate statistics; path~$b$ ($+3.99$, $p=0.109$) is an assumed
+illustrative value, since no published source reports a per-patient
+biomarker--outcome regression coefficient (see Methods). The resulting
+illustrative indirect effect ($a \times b = +1.11$, 95\% CI $[0.0593,
+2.34]$, excluding zero) is a feasibility demonstration of the analysis
+framework, \emph{not} a real mediation finding.}
 \label{fig:mediation-illustration}
 \end{figure}
 
 \begin{figure}[h]
 \centering
-\FigurePlaceholder{6cm}{[PLACEHOLDER -- insert \texttt{figures/mediation\_power\_power\_curve.png}]\\
-Power curve: detectability of mediation vs. sample size}
+\includegraphics[width=0.85\textwidth]{mediation_power_curve.png}
 \caption{Empirical statistical power to detect a hypothetical mediation
-effect (indirect-effect bootstrap confidence interval excluding zero) as a
-function of trial sample size, evaluated at the sample sizes of trials
-actually conducted in this literature ($n=62$, $204$, $3{,}808$, etc.).}
+effect (bootstrapped indirect-effect 95\% CI excluding zero) as a function
+of trial sample size, at assumed parameters $a=0.27$, $b=0.5$, $c'=1.75$
+(see Methods/Section~\ref{fig:mediation-illustration}). Evaluated at sample
+sizes spanning those actually used in this literature ($n=62$, the
+Exenatide-PD trial size, through $n=3{,}808$, the evoke/evoke+ scale).
+Dashed line marks the conventional 80\% power threshold.}
 \label{fig:power-curve}
 \end{figure}
 
-% TODO: report exact power values from output/power/power_analysis.csv
-[TODO: narrative summary, e.g. "At the assumed effect size, the Exenatide-PD
-trial (n=62) had an estimated power of X\% to detect mediation, compared to
-Y\% for evoke/evoke+ (n=3,808)."]
+% NOTE: values below are read off the plotted power curve (approximate);
+% replace with exact decimals from output/power/power_analysis.csv if/when
+% available for full precision.
+At the assumed effect size, the Exenatide-PD trial scale ($n=62$) had only
+$\approx$14\% power to detect mediation via this framework -- meaning even
+if a mediated effect of this magnitude were truly present in that trial, it
+would very likely have gone undetected by a formal mediation test. Power
+rose to $\approx$70\% at $n=300$ and reached $\approx$100\% by $n=1{,}200$,
+remaining effectively at ceiling at the evoke/evoke+ scale ($n=3{,}808$);
+the conventional 80\% power threshold was crossed somewhere between
+$n=300$ and $n=1{,}200$. This indicates that, at this assumed effect size,
+only the largest trials conducted in this literature (evoke/evoke+, and by
+extension ELAD at $n=204$ only marginally) were ever statistically
+positioned to detect a mediated effect with reasonable power -- the smaller
+proof-of-concept PD trials (Exenatide-PD, $n=62$; LixiPark, $n\approx156$)
+were comparable in scale and thus a true mediation effect of this size could
+easily have escaped statistical detection in them even if biologically
+present.
 
 % =============================================================================
 \section{Discussion}
 \label{sec:discussion}
 
 \subsection{Which hypothesis is best supported}
-% TODO: expand using research_question.md's hypothesis ranking rationale.
 Of the three candidate hypotheses, H3 -- that central insulin resistance is
 a shared, contributory (rather than primary or subgroup-defining) mechanism
-linking AD and PD to GLP-1RA effects -- is the framing best supported by, and
-least contradicted by, the available evidence. [TODO: expand with specific
-citations to contradicting and supporting evidence from
-Sections~\ref{sec:results}.]
+linking AD and PD to GLP-1RA effects -- is the framing best supported by,
+and least contradicted by, the available evidence. H1 (insulin-resistance
+reversal as the \emph{primary} mechanism) is directly contradicted by the
+decoupling evidence in Section~\ref{sec:results}: \citet{carranza2021}
+showed a full neuroprotective phenotype with a completely flat
+insulin-receptor mRNA readout, and \citet{paladugu2021} showed biochemical
+pathway engagement (pGSK-3$\beta$, IDE) without a corresponding behavioral or
+neurodegenerative-marker change in the same animals -- if insulin-resistance
+reversal were the dominant mechanism, these dissociations should not occur
+as readily as they do. H2 (metabolic status as a subgroup-defining
+predictor) is unsupported by the one direct empirical test available: the
+\citet{athauda2019} post-hoc analysis found neither BMI nor insulin
+resistance among the significant predictors of motor response, with
+phenotype and disease-stage variables predicting response instead. H3
+survives both of these challenges because it does not require insulin-pathway
+engagement to be necessary or sufficient in every case -- it only requires
+that the pathway be \emph{one real contributor among several}, which is
+consistent with cases where insulin-signaling biomarkers and clinical
+benefit do move together (\citet{athauda2019} exosome substudy; Zhang et
+al.\ 2022, 6-OHDA rat model, pIRS-1$^{\text{Ser312}}$ normalization
+co-occurring with dopaminergic neuron preservation) as well as cases where
+they dissociate.
 
 \subsection{Mechanistic plausibility versus clinical translation}
-% TODO
-[TODO: discuss the gap between preclinical mechanistic convergence and
-inconsistent/null clinical trial results.]
+Preclinical mechanistic convergence on insulin-signaling components is
+broad (10/21 sources) and preclinical pooled effect sizes are large
+(\citet{kong2023}: SMD $-1.28$ to $-1.88$ across learning, memory, and
+amyloid/tau outcomes), yet clinical translation is markedly inconsistent
+between the two diseases: all three Parkinson's disease RCTs identified
+were positive on the primary motor endpoint, while all three Alzheimer's
+disease RCTs reviewed were null or mixed on their primary endpoints. Two
+non-mutually-exclusive explanations are consistent with the data. First, no
+clinical trial in either disease actually measured central insulin
+resistance or signaling as an outcome (with the partial exception of the
+exosome substudy in PD), so a clinical translation gap cannot currently be
+attributed to mechanism failure versus simply absent measurement -- the
+trials were not designed to test the mechanism, only the downstream
+clinical endpoint. Second, disease-specific factors plausibly modulate
+translation independently of insulin signaling: PD's relatively focal
+dopaminergic motor circuitry may be more tractable to a partial, time-limited
+biochemical intervention than AD's diffuse cortical pathology, and
+blood--brain-barrier penetration differences between agents (e.g.\ DA5-CH's
+superiority over liraglutide in \citet{zhang2023}, attributed by the authors
+to penetration rather than differential insulin-pathway engagement) suggest
+that drug-delivery pharmacokinetics, not insulin-pathway engagement per se,
+may be the dominant driver of between-agent differences observed to date.
 
 \subsection{The unanswered metabolic-subgroup question}
-% TODO
-[TODO: discuss why most trials cannot test H2, and what data would be
-needed to test it properly.]
+Most trials cannot test H2 because diabetic and severely insulin-resistant
+participants were excluded from enrollment by design in 5 of 7 RCTs
+identified, specifically to isolate a CNS drug effect from peripheral
+glycemic confounding. This is a reasonable design choice for isolating a
+CNS-specific signal, but it has the side effect of removing exactly the
+population in which a true insulin-resistance-mediated effect should be
+largest and easiest to detect. Two paths exist to close this gap with data
+that may already exist: (1) a post-hoc, diabetes/HbA1c-stratified
+reanalysis of \citet{cummings2026} (evoke/evoke+), which enrolled
+$\sim$516 diabetic participants -- the only GLP-1RA AD/PD trial with a
+metabolically-impaired subgroup of meaningful size -- but has not published
+such a stratified result; and (2) a diabetes-stratified reanalysis of the
+AbuAlrob et al.\ 2025 real-world cohort ($n=295{,}010$, $\sim$51\% diabetic
+in the treated arm), which the original authors explicitly did not perform
+due to incomplete EHR coding. Absent either, a prospective trial enrolling
+a broader metabolic range with a central insulin-resistance biomarker (e.g.\
+CSF or neuronal-exosome IRS-1/Akt/mTOR markers, as in \citet{athauda2019})
+measured at baseline and follow-up would directly test H2 rather than
+inferring it indirectly.
 
 \subsection{Interpretation of the original transcriptomic finding}
-% TODO
-[TODO: discuss the GSE34451 finding's biological plausibility
-(e.g., compensatory \textit{Insr} upregulation) against its statistical
-limitations (n=3/group, no FDR significance, no GLP-1RA arm in this dataset).]
+The GSE34451 re-analysis is a genuine, original contribution addressing the
+insulin-resistance side of the hypothesis in a relevant tissue (hippocampus)
+and disease-relevant model (Goto-Kakizaki type 2 diabetic rat), but it has
+an important scope limitation: this dataset contains no GLP-1RA treatment
+arm, so it cannot itself test mediation -- it can only establish whether
+insulin-pathway transcriptional changes are present in a diabetic
+hippocampus, which is the upstream half of the proposed causal chain. Within
+that scope, the finding is biologically plausible but mixed. \textit{Mapk8}
+upregulation matches the canonical JNK-mediated insulin-resistance
+mechanism described in the broader literature \citep{talbot2014}, lending
+some transcriptomic support to the idea that this pathway is engaged in a
+diabetic hippocampus. However, \textit{Insr} and \textit{Gys2} upregulation
+runs counter to the simplest version of the hypothesis (in which insulin
+signaling components would be expected to decrease uniformly). A plausible
+resolution is that mRNA abundance does not cleanly track pathway
+\emph{activity}: \citet{talbot2014} reviews postmortem human hippocampal
+tissue-stimulation assays showing reduced insulin-stimulated IR and IRS-1
+\emph{tyrosine phosphorylation} in AD relative to baseline transcript or
+protein levels, i.e.\ the functional deficit in this literature is
+predominantly post-translational (phosphorylation-state), not
+transcriptional. \textit{Insr} mRNA upregulation alongside reduced
+receptor-level signaling efficiency would be consistent with a compensatory
+feedback loop rather than a contradiction, though this was not directly
+tested here. These findings should be treated as hypothesis-generating: the
+$n=3$/group sample size limits statistical power substantially, and zero
+genes survived FDR correction at the genome-wide level.
 
 % =============================================================================
 \section{Limitations}
@@ -358,23 +583,53 @@ limitations (n=3/group, no FDR significance, no GLP-1RA arm in this dataset).]
   design, structurally preventing direct tests of the metabolic-subgroup
   hypothesis (H2).
   \item The original transcriptomic analysis (GSE34451) used $n=3$ per
-  group per brain region, limiting statistical power; findings should be
-  treated as exploratory/hypothesis-generating.
+  group per brain region, limiting statistical power; zero genes survived
+  genome-wide FDR correction, and findings should be treated as
+  exploratory/hypothesis-generating rather than confirmatory.
+  \item The nominally significant insulin-pathway genes identified
+  (\textit{Insr}, \textit{Pde3b}, \textit{Gys2}, \textit{Prkab2},
+  \textit{Mapk8}) did not all change in the direction predicted by the
+  simplest version of the hypothesis (\textit{Insr} and \textit{Gys2} were
+  upregulated, not downregulated, in the diabetic group), so this result
+  should not be over-interpreted as clean confirmatory evidence even within
+  its own limited scope.
+  \item GSE34451 contains no GLP-1RA treatment arm and therefore cannot
+  itself test mediation; it addresses only the insulin-resistance side of
+  the proposed causal chain.
   \item KEGG's curated reference pathways for AD and PD do not currently
   integrate insulin-signaling components, indicating this mechanism is not
   yet reflected in canonical pathway curation.
-  % TODO: add any further limitations specific to your final figures/results.
+  \item The power-analysis values reported in Section~\ref{sec:results} are
+  read directly off the plotted power curve rather than the underlying
+  \texttt{power\_analysis.csv} decimals, and the curve itself is a
+  feasibility calculation under assumed (not directly observed) path
+  coefficients -- it estimates detectability of a hypothesized effect size,
+  not whether that effect size is real.
 \end{itemize}
 
 % =============================================================================
 \section{Conclusion}
 \label{sec:conclusion}
-% TODO: 2-4 sentences, finalized last.
-[TODO: state plainly (1) that formal mediation evidence does not yet exist,
-(2) that H3 is the best-supported framing without being confirmed, and (3)
-what would be needed to close the evidence gap (e.g., a dataset or
-sub-study measuring GLP-1RA exposure, a central insulin-resistance marker,
-and a neurodegenerative outcome in the same subjects).]
+Formal mediation evidence linking GLP-1RA treatment, central insulin
+resistance, and neurodegenerative outcomes does not yet exist anywhere in
+the reviewed literature: no clinical or preclinical study has performed a
+statistical mediation test of this causal chain. Among the three candidate
+hypotheses evaluated, H3 -- central insulin resistance as a shared,
+contributory (not primary or subgroup-defining) mechanism -- is the
+best-supported framing, because it is the only one consistent with both the
+cases where insulin-pathway engagement and clinical benefit co-occur and the
+cases where they clearly dissociate. Our original re-analysis of GSE34451
+adds a modest, hypothesis-generating data point on the insulin-resistance
+side of this chain: insulin-signaling-pathway genes show nominal (though not
+FDR-significant) differential expression in diabetic rat hippocampus, with
+a mixed direction of effect that itself argues against an oversimplified,
+uniformly-down-regulated picture of central insulin resistance. Closing the
+remaining evidence gap requires a dataset or sub-study that measures GLP-1RA
+exposure, a central insulin-resistance biomarker, and a neurodegenerative
+outcome in the same subjects -- the most immediately actionable opportunity
+being a diabetes/HbA1c-stratified reanalysis of the evoke/evoke+ trial
+cohort, which already contains the necessary metabolic subgroup but has not
+published a stratified result.
 
 % =============================================================================
 \section*{Acknowledgments}
